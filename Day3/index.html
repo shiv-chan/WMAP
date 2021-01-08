@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    header, img, form {
+      display: block;
+      width: calc(100vw * 0.33);
+      margin: 0 auto;
+    }
+
+    body {
+      text-align: center;
+    }
+    
+    p {
+      margin-top: -20px;
+    }
+
+    .input {
+      width: 100%;
+      text-align: left;
+    }
+
+    .input > input{
+      width: 80%;
+    }
+
+    #agreement, #btn {
+      margin-top: 10%;
+    }
+
+    a {
+      display: block;
+      margin: 0.5% 0 0 0;
+    }
+
+    button {
+      box-sizing: border-box;
+      appearance: none;
+      border: 2px solid rgb(71, 71, 71);
+      background-color: rgb(71, 71, 71);
+      border-radius: 3em;
+      padding: 0.6em 1.5em;
+      color: #fff;
+      font-size: large;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./undraw_new_message_2gfk.png" alt="mail with ballon">
+    <h1>SIGN UP NOW!</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa in, ad saepe consectetur recusandae enim a quibusdam dolores nostrum voluptas facere dolore esse ipsa nesciunt, est eaque aliquam mollitia.</p>
+  </header>
+  <form action="">
+    <div class="input">
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="input">
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="Your Email Address" required>
+    </div>
+    <div id="agreement">
+      <label for="agreement"><input type="checkbox" value="true" name="agreement" required>I agree to your terms and conditions.</label><br>
+      <a href="#"><b>Read terms and conditions.</b></a>
+    </div>
+    <div id="btn">
+      <button type="submit">Subscribe</button><br>
+      <a href="#">Skip</a>
+    </div>
+  </form>
+</body>
+</html>
