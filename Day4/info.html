@@ -4,6 +4,15 @@
     <head>
         <title>Home</title>
         <style>
+             nav {
+          position: fixed;
+          top: 0;
+          min-width: 100vw;
+          text-align: center;
+          list-style: none;
+          background-color: rgb(221, 221, 221);
+        }
+
             .Menu {
                 list-style: none;
                 margin-left: 30px;
@@ -17,33 +26,39 @@
                 margin-right: 30px;
             }
             .body {
+                position: relative;
+                margin: 0;
+                padding: 0;
                 text-align: center;
                
             }
             .hr {
-                margin-top:50px;
+                margin-top: 84px;
                 margin-bottom: 0px;
                 height:5px;
                 background-color:black;
 
             }
+            
         </style>
     </head>
     <body class="body">
-        <ul class="Menu">
-            <li>
-                <a href="home.html">Home</a>
-            </li>
-            <li>
-                <a href="info.html">Information</a>
-            </li>
-            <li>
-                <a  href="attractions.html">Attractions</a>
-            </li>
-            <li>
-                <a  href="contact.html">Contact</a>
-            </li>
-        </ul>
+        <nav>
+            <ul class="Menu">
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="info.html">Information</a>
+                </li>
+                <li>
+                    <a  href="attractions.html">Attractions</a>
+                </li>
+                <li>
+                    <a  href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
         <hr class="hr"/>
         <div style="background-color:lightgray;">
         <table cellspacing="50" style="text-align: justify;">

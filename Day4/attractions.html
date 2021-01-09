@@ -6,19 +6,34 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Attractions</title>
    <style>
-     .mainMenu {
-                text-align: center;
-                list-style: none;
-                margin-left: 30px;
-                margin-top: 30px;
-                padding: 0;
+     body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+     }
+
+     nav {
+          position: fixed;
+          top: 0;
+          min-width: 100vw;
+          text-align: center;
+          list-style: none;
+          background-color: rgb(221, 221, 221);
       }
-      
+
       .mainMenu li {
-                font-style: normal;
-                font-size:25px;
-                display: inline-block;
-                margin-right: 30px;
+        font-style: normal;
+        font-size:25px;
+        display: inline-block;
+        margin-right: 30px;
+      }
+
+      header {
+        padding-top: 65px;
+      }
+
+      header, section {
+        margin: 0 15px;
       }
 
       section {
@@ -57,7 +72,7 @@
   </header>
   <section>
     <h2>Eiffel Tower</h2>
-    <img src="https://www.planetware.com/photos-large/F/france-paris-eiffel-tower.jpg" alt="Eiffel Tower" title="Eiffel Tower">
+    <a href="https://www.planetware.com/photos-large/F/france-paris-eiffel-tower.jpg" target="_blank"><img src="https://www.planetware.com/photos-large/F/france-paris-eiffel-tower.jpg" alt="Eiffel Tower" title="Eiffel Tower"></a>
     <p>The most visited tourist attraction in Paris, the Eiffel Tower also ranks high on the list of places to visit in France. It's hard to believe that the structure was dismissed as a monstrosity when it was first unveiled. The iconic tower was designed by Alexandre-Gustave Eiffel for the Paris Exhibition of 1889, which marked the centenary of the French Revolution.</p>
     <div>
       <ul>
@@ -88,6 +103,5 @@
       </ul>
     </div>
   </section>
-​
  </body>
 </html>
