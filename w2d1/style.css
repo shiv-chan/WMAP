@@ -32,12 +32,16 @@ body {
   padding-top: 2px;
 }
 
+.mainMenu:hover {
+  background-color: rgba(73, 84, 100, 80%);
+}
+
 header {
   font-family: 'Bodoni Moda', serif;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--lightgrey);
+  background-color: ;
   z-index: 1;
 }
 
