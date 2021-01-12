@@ -1,0 +1,117 @@
+/* Kaho - afternoon */
+:root {
+  --lightgrey: #e8e8e8;
+  --grey: #bbbfca;
+  --charcoal: #495464;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--lightgrey);
+}
+
+.mainMenu {
+  list-style: none;
+  margin: 0;
+  padding: 5px 15px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--charcoal);
+}
+
+.mainMenu li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.mainMenu li a {
+  color: var(--lightgrey);
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 2px;
+}
+
+header {
+  font-family: 'Bodoni Moda', serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--lightgrey);
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+  margin: 15px;
+}
+
+section {
+  position: relative;
+  top: 150px;
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+.headline {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 30px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+hr {
+  border: 1px solid var(--grey)
+}
+
+.image {
+  border: 8px solid var(--charcoal);
+  width: 60%;
+  height: calc(100vw * 0.3);
+  object-fit: cover;
+  object-position: 0% 45%;
+  box-sizing: border-box;
+  float: left;
+  margin-right: 20px;
+}
+
+#subHeadline, #main {
+  font-size: 20px;
+}
+
+#main {
+  margin-top: 30px;
+}
+
+#main > p::first-letter {
+  text-transform: capitalize;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#main > p::first-line {
+  background-color: var(--grey);
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 500px;
+}
+
+td, th {
+  border: 1px solid var(--grey);
+  text-align: left;
+  padding: 8px;
+}
+
+.tableHeader {
+  text-align: center;
+  font-weight: bold;
+}
+
+td {
+  width: 250px;
+}
