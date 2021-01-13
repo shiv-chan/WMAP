@@ -17,7 +17,7 @@ div.navbar {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: space-around;
   background-color: #a773c3;
   max-width: 1000px;
   width: 100%;
