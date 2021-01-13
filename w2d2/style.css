@@ -47,12 +47,12 @@ div.teamSection {
   height: 100%;
   padding: 10px; 
   border: 2px solid rebeccapurple;
-  margin-bottom: 30px;
 }
 
-div.teamSection:first-of-type {
+body > div:nth-of-type(2) {
   position: relative;
   top: 60px;
+  margin-bottom: 100px;
 }
 
 
