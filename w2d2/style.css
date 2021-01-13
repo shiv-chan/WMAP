@@ -103,3 +103,18 @@ div.member {
   scrollbar-color: salmon #ffc6be;
   height: 300px;
 }
+
+/* Custom a scroll bar */
+.member > p::-webkit-scrollbar {
+  width: 10px;
+}
+
+.member > p::-webkit-scrollbar-track {
+  background-color: #ffc6be;
+}
+
+.member > p::-webkit-scrollbar-thumb {
+  background-color: salmon;
+  border-radius: 6px;
+  border: 2px solid #ffc6be;
+}
