@@ -102,6 +102,7 @@ div.member {
   overflow-x: hidden;
   scrollbar-color: salmon #ffc6be;
   height: 300px;
+  word-break: break-all;
 }
 
 /* Custom a scroll bar */
