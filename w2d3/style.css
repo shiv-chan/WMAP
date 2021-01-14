@@ -8,7 +8,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
 }
 
 h1 {
@@ -21,22 +20,37 @@ div {
 }
 
 div.container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 33%;
-  height: 600px;
+  width: 33vw;
   margin: 0 auto;
   background-color: rgba(255, 203, 242, 0.5);
 }
 
+div.container::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
 div.sq {
   width: 30%;
-  height: 30%;
+  float: left;
+  margin: calc(10%/6);
   font-size: 50px;
   cursor: pointer;
   text-align: center;
+}
+
+div.sq::after {
+  content: "";
+  display: flex;
+  padding-bottom: 100%;
+}
+
+span {
+  float: left;
+  width: 100%;
+
+  /* background-color: red; */
 }
 
 #sq1 {
@@ -90,7 +104,8 @@ div.sq {
 
 #sq6:hover {
   background-color: #d8bbff;
-  transition: background-color 1s ease-in;
+  color: #d8bbff;
+  transition: all 1s ease-in;
 }
 
 #sq7 {
@@ -117,11 +132,12 @@ div.sq {
   0% {transform: rotate(-45deg);}
   25% {transform: rotate(45deg);}
   50% {transform: rotate(-45deg);}
-  100% {transform: rotate(45deg);}
+  75% {transform: rotate(45deg);}
+  100% {transform: rotate(-45deg);}
 }
 
 #sq8:hover {
-  animation: pendulum 2s linear;
+  animation: pendulum 2s linear infinite;
 }
 
 #sq9 {
@@ -132,9 +148,10 @@ div.sq {
   0% {background-color: inherit;}
   25% {background-color: white;}
   50% {background-color: #c0fdff;}
-  100% {background-color:white;}
+  75% {background-color: white;}
+  100% {background-color:#c0fdff;}
 }
 
 #sq9:hover {
-  animation: blink 2s steps(4);
+  animation: blink 2s steps(4) infinite;
 }
