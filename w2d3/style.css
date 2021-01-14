@@ -1,0 +1,140 @@
+/* Kaho - afternoon */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 100px 0 30px 0;
+  text-align: center;
+}
+
+div {
+  border: 2px solid rgb(255, 203, 242);
+}
+
+div.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 33%;
+  height: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 203, 242, 0.5);
+}
+
+div.sq {
+  width: 30%;
+  height: 30%;
+  font-size: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#sq1 {
+  background-color: #f3c4fb;
+}
+
+#sq1:hover {
+  transform: translateX(50px);
+  transition: transform 0.7s ease-in;
+}
+
+#sq2 {
+  background-color: #ecbcfd;
+}
+
+#sq2:hover {
+  transform: scale(2);
+  transition: transform 0.7s ease-in;
+}
+
+#sq3 {
+  background-color: #e5b3fe;
+}
+
+#sq3:hover {
+  transform: rotateX(180deg);
+  transition: transform 0.7s ease-in;
+}
+
+#sq4 {
+  background-color: #e2afff;
+}
+
+#sq4:hover {
+  transform: rotateZ(180deg);
+  transition: transform 0.7s ease-in;
+}
+
+#sq5 {
+  background-color: #deaaff;
+}
+
+#sq5:hover {
+  transform: rotateY(180deg);
+  transition: transform 0.7s ease-in;
+}
+
+#sq6 {
+  background-color: #ffa1c5;
+}
+
+#sq6:hover {
+  background-color: #d8bbff;
+  transition: background-color 1s ease-in;
+}
+
+#sq7 {
+  background-color: #d0d1ff;
+  position: relative;
+  
+}
+
+@keyframes verticalMove {
+  from {top: 20px;}
+  to {top: 700px;}
+}
+
+#sq7:hover {
+  animation: verticalMove 1s ease-in;
+}
+
+
+#sq8 {
+  background-color: #c8e7ff;
+}
+
+@keyframes pendulum {
+  0% {transform: rotate(-45deg);}
+  25% {transform: rotate(45deg);}
+  50% {transform: rotate(-45deg);}
+  100% {transform: rotate(45deg);}
+}
+
+#sq8:hover {
+  animation: pendulum 2s linear;
+}
+
+#sq9 {
+  background-color: #c0fdff;
+}
+
+@keyframes blink {
+  0% {background-color: inherit;}
+  25% {background-color: white;}
+  50% {background-color: #c0fdff;}
+  100% {background-color:white;}
+}
+
+#sq9:hover {
+  animation: blink 2s steps(4);
+}
