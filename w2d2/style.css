@@ -33,6 +33,7 @@ div.navbar {
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  outline: none;
 }
 
 .navbar > button:hover {
@@ -120,3 +121,4 @@ div.member {
   border-radius: 6px;
   border: 2px solid #ffc6be;
 }
+
