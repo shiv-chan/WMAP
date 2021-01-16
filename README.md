@@ -1,2 +1,2 @@
 # WMAP
-Class Assingments
+Class Assignments
