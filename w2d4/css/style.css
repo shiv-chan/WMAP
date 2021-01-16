@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    padding: 0 16px;
+} 
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ecdcb0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #C1D7AE;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1%;
+    position: fixed;
+    left: 0;
+    top: o;
+    z-index: 3;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+@media all and (max-width: 540px) {
+    .navbar {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #968E85;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover{
+    color: #8CC084;
+}
+
+
+#mainbar{
+    padding-top: 60px;
+}
+
+@media all and (max-width: 540px) {
+    #mainbar {
+        padding-top: 120px;
+    }
+}
+
+#title{
+    position: relative;
+    padding: 0 16px;
+}
+
+#title img{
+    width: 100%;
+    display: block;
+    margin: auto;
+    max-height: 500px;
+    border-radius: 3%;
+}
+
+#title h1{
+    z-index: 1;
+    position: absolute;
+    color: #C1D7AE;
+    font-family: monospace;
+    font-size: 3vw;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    top: 90%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+#about{
+    text-align: center;
+    color: #968E85;
+    font-family: monospace;
+    font-size: 18px;
+    margin: 50px 0;
+}
+
+#row {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+@media all and (max-width: 550px) {
+    #row {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+#row .col{
+    text-decoration: none;
+    background-color: #C1D7AE ;
+    border-radius: 10px;
+    border: solid #968E85;
+    margin: 10px;
+}
+
+#row .col a{
+    text-align: center;
+    font-size: 2vw;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #968E85;
+}
+
+#row .col a:hover{
+    color: #8CC084; 
+}
+
+footer{
+    background-color: #C1D7AE;
+    text-align: center;
+    color: #968E85;
+    padding: 1%;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+}
+

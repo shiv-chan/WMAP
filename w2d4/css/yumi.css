@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ecdcb0;
+  font-family: monospace;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #c1d7ae;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media all and (max-width: 540px) {
+    .navbar {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+.navbar a {
+  text-decoration: none;
+  color: #968e85;
+}
+
+.navbar a:hover {
+  color: #8cc084;
+}
+
+#main-title {
+  text-align: center;
+  margin-top: 7%;
+  font-size: 3vw;
+}
+
+.main-explanation {
+  text-align: center;
+  font-size: 18px;
+}
+
+.second-title {
+  background: linear-gradient(transparent 0%, #8cc084 50%);
+}
+
+#all-contents {
+  height: 100%;
+  width: 90%;
+  padding: 30px;
+  margin: auto;
+}
+
+.each-contents {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  background-color: #c1d7ae;
+  width: 100%;
+  margin-right: 10px;
+  height: 45vh;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 4px 4px 5px gray;
+  font-size: 18px;
+}
+
+.tutorial {
+  background-color: white;
+  width: 80%;
+  margin-left: 10px;
+  height: 45vh;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 4px 4px 5px gray;
+  font-size: 22px;
+}
+
+img {
+  margin-top: 50px;
+  width: 30%;
+}
+
+.cat-img:hover {
+  transform: rotate(1080deg);
+  transition-duration: 3s;
+  cursor: pointer;
+}
+
+.pikachu-img:hover {
+  transform: skewX(50deg);
+  transition-duration: 1s;
+  cursor: pointer;
+}
+.content-p {
+  text-align: center;
+    font-size: 1.6vw;
+}
+
+footer{
+    background-color: #C1D7AE;
+    text-align: center;
+    color: #968E85;
+    padding: 1%;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
