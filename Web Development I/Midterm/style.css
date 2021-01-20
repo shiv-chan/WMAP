@@ -1,0 +1,299 @@
+:root {
+  --h-font: Arial, Helvetica, sans-serif;
+  --p-font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  --black: #000000;
+  --grey: #828282;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 1440px;
+  width: 100vw;
+  display: grid;
+  grid-template: 95px 1fr 95px / 500px 1fr 500px;
+}
+
+header, footer {
+  width: 100%;
+  grid-column: 1 / 4;
+  background-color: var(--black);
+  padding: 0 200px;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: var(--h-font);
+}
+
+header :first-child, footer :first-child {
+  margin-right: auto;
+}
+
+header button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #008f00;
+  color: inherit;
+}
+
+header i {
+  font-size: 35px;
+}
+
+nav {
+  padding-left: 200px;
+  font-family: var(--p-font);
+  font-size: 25px;
+}
+
+nav > div {
+  margin: 15px 0;
+}
+
+nav #notification {
+  cursor: pointer;
+  width: 150px;
+}
+
+nav #notification::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0f3";
+  font-weight: 900;
+  padding-right: 15px;
+}
+
+nav input {
+  width: 65%;
+  border: 0.5px solid var(--grey);
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  margin: 5px;
+}
+
+nav input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-family: var(--p-font);
+  font-size: 25px;
+}
+
+nav #readingList span{
+  cursor: pointer;
+}
+
+nav #readingList .listDisplay {
+  width: 90%;
+  text-align: left;
+  padding: 20px;
+  border: 0.5px solid var(--grey);
+  border-radius: 24px;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+nav #readingList .listDisplay > h4 {
+  padding-bottom: 10px;
+}
+
+
+nav #readingList::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f02e";
+  font-weight: 900;
+  padding-right: 15px;
+}
+
+nav #readingList a {
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+  left: 60px;
+  color: inherit;
+}
+
+nav #writeStory {
+  cursor: pointer;
+  width: 250px;
+}
+
+nav #writeStory::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f303";
+  font-weight: 900;
+  padding-right: 15px;
+}
+
+aside {
+  padding-right: 200px;
+  opacity: 1;
+}
+
+main .articleCard {
+  border: 1px solid var(--grey);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+  margin: 10px;
+  padding: 15px;
+  font-family: var(--h-font);
+  display: flex;
+  flex-flow: column no-wrap;
+  height: auto;
+}
+
+main .articleCard .text > p:first-of-type::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f2b4";
+  font-weight: 400;
+  padding-right: 5px;
+}
+
+main .articleCard .text > p:nth-of-type(2), main .articleCard .cardFooter {
+  color: var(--grey);
+  font-size: smaller;
+} 
+
+main .articleCard span {
+  font-weight: bold;
+}
+
+main .articleCard h3 {
+  margin: 10px 0;
+}
+
+main .articleCard > p ~ p {
+  margin: 5px 0;
+}
+
+main .articleCard .cardFooter {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+main .articleCard .cardFooter > i:first-of-type {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+
+main .articleCard > img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+
+}
+
+aside {
+  font-family: var(--p-font);
+}
+
+aside #latestFollowing {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 30px;
+  padding: 25px;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+aside #latestFollowing .following > i {
+  font-size: 50px;
+  margin: 10px 10px 0 10px;
+}
+
+aside #latestFollowing .following > span {
+  display: block;
+} 
+
+aside #topics {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+
+aside #topics .topic {
+  width: 100px;
+  border: 0.5px solid var(--grey);
+  border-radius: 5px;
+  color: var(--grey);
+  margin: 5px;
+  padding: 5px;
+  font-family: var(--h-font);
+}
+
+aside #trending {
+  text-align: center;
+  counter-reset: indexNumber;
+  margin-bottom: 30px;
+}
+
+aside .articleCard {
+  text-align: left;
+  border-radius: 22px;
+  margin: 15px 30px 0px;
+  font-family: var(--h-font);
+  padding-left: 10px;
+  height: auto;
+  font-size: 10px;
+  position: relative;
+  left: 30px;
+}
+
+aside .articleCard::before {
+  counter-increment: indexNumber;
+  content: counter(indexNumber, decimal-leading-zero) " ";
+  position: absolute;
+  top: 0px;
+  left: -15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(130, 130, 130, 0.5);
+}
+
+aside .articleCard p:first-of-type::before {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  padding-right: 5px;
+  content:"\f2b4";
+}
+
+aside .articleCard p {
+  margin: 5px;
+}
+
+aside .articleCard h3 {
+  padding-left: 5px;
+} 
+
+aside .articleCard span {
+  font-weight: bold;
+}
+
+aside .articleCard > p:nth-of-type(2) {
+  color: var(--grey);
+}
+
+aside hr {
+  width: 70%;
+  height: 0.5px;
+  margin: 15px auto;
+  background-color: rgba(130, 130, 130, 0.5);
+  border: none;
+}
+
+footer > div {
+  margin: 0 30px;
+}
