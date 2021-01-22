@@ -1,6 +1,5 @@
 html, body {
   display: initial;
-  height: 100%;
   grid-template: none;
 }
 
@@ -66,9 +65,9 @@ article .title {
   position: sticky;
   top: 0;
   background-color: #ffffff;
-  width: 100vw;
+  width: 80vw;
   margin: 10px auto;
-  padding: 10px 900px 0 300px;
+  padding: 10px 500px 0 300px;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -105,7 +104,7 @@ article .title .author {
   font-size: 12px;
 }
 
-article .title .author::before {
+article .title .author p:nth-of-type(1)::before {
   font-family: "Font Awesome 5 Free";
   content: "\f2bd";
   font-weight: 900;
@@ -114,6 +113,7 @@ article .title .author::before {
   left: -50px;
   font-size: 40px;
 }
+
 
 article .title .author p:nth-of-type(2) {
   color: var(--grey);
