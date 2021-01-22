@@ -141,7 +141,7 @@ main article .articleCard img ~ p {
   line-height: 28px;
 }
 
-main article .articleCard :nth-of-type(4) {
+main article .articleCard p:nth-of-type(4) {
   font-family: var(--h-font);
   color: #008f00;
   font-size: 15px;
@@ -170,6 +170,45 @@ main article .articleCard .actions > .response::before {
   color: initial;
 }
 
+.externalSocialBtn {
+  width: 140px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 150%;
+  left: -250%;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  color: var(--grey);
+  padding-left: 20px;
+  font-size: 14px;
+  transform: scale(0);
+  z-index: 1;
+}
+
+.externalSocialBtn::before {
+  content: "";
+  position: absolute;
+  top: -11%;
+  left: 45%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+.externalSocialBtn > i > span{
+  color: var(--grey);
+  font-size: 14px;
+  padding-left: 10px;
+  font-weight: lighter;
+}
+
+.fa-external-link-alt:hover .externalSocialBtn {
+  transform: scale(1);
+}
 
 main article .articleCard .actions > .response {
   margin-right: auto;
@@ -214,8 +253,6 @@ main article .articleCard .actions > i > span::before {
 main article .articleCard .actions > i.fa-bookmark:hover span {
   transform: scale(1);
 }
-
-
 
 main article .showmore {
   color: #008f00;
