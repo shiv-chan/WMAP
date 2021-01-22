@@ -1,0 +1,201 @@
+header {
+  display: flex;
+  height: 115px;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  border-bottom: 0.5px solid rgba(130, 130, 130, .3);
+  padding: 0 350px;
+  z-index: 1;
+}
+
+header :first-child {
+  margin: initial;
+}
+
+header :nth-child(4) {
+  margin-right: auto;
+}
+
+header h1 {
+  color: initial;
+  font-size: 25px;
+  padding-right: 20px;
+}
+
+header p {
+  padding-right: 20px;
+}
+
+header #followBtn {
+  width: 80px;
+  height: 40px;
+  padding-top: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #008f00;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+@keyframes shiny {
+  0% { left: -100%; }
+  10% { left: 130%; }
+  100% { left: 130%; }
+}
+
+header #followBtn::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 50%;
+  position: relative;
+  top: -20%;
+  left: -200%;
+  transform: scale(2) rotate(135deg);
+  background-image: linear-gradient(100deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, .5) 100%, rgba(255, 255, 255, 0) 0%);
+  animation: shiny 5s ease-out infinite;
+}
+
+
+header i {
+  padding-right: 20px;
+}
+
+header #upgradeBtn {
+  color: initial;
+  width: 80px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+main {
+  position: relative;
+  top: 120px;
+  display: flex;
+  padding: 30px 350px;
+}
+
+main .profileCard {
+  width: 133px;
+  position: fixed;
+  top: 150px;
+}
+
+main .profileCard img {
+  width: 133px;
+  margin-bottom: 30px;
+}
+
+main .profileCard h1 {
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+main .profileCard p {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+main article {
+  width: 100%;
+  padding: 0 90px;
+}
+
+main article .articleCard {
+  width: 80%;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main article .articleCard p:first-of-type {
+  font-size: 12px;
+}
+
+main article .articleCard span {
+  color: var(--grey);
+  font-weight: lighter;
+}
+
+main article .articleCard h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+main article .articleCard :nth-of-type(2) {
+  color: var(--grey);
+  font-size: 20px;
+}
+
+main article .articleCard img {
+  width: 100%;
+  height: 80%;
+  margin: 20px 0;
+}
+
+main article .articleCard img ~ p {
+  font-family: var(--p-font);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+main article .articleCard :nth-of-type(4) {
+  font-family: var(--h-font);
+  color: #008f00;
+  font-size: 15px;
+}
+
+main article .articleCard .actions {
+  display: flex;
+  margin: 20px 0;
+}
+
+main article .articleCard .actions > .clap::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f2a7";
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+main article .articleCard .actions > .response::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f075";
+  margin-right: 10px;
+  margin-left: 30px;
+  font-size: inherit;
+  color: initial;
+}
+
+
+main article .articleCard .actions > .response {
+  margin-right: auto;
+}
+
+main article .articleCard .actions > i {
+  color: initial;
+  margin-right: 20px;
+}
+
+main article .showmore {
+  color: #008f00;
+  text-align: center;
+  cursor: pointer;
+}
+
+footer {
+  height: 100px;
+  display: flex;
+  align-content: center;
+  padding: 30px 350px;
+  margin: 0;
+  position: relative;
+  top: 120px;
+}
+
+footer img {
+  height: 40px;
+}
