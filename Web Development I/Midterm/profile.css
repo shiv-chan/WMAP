@@ -51,11 +51,11 @@ header #followBtn::after {
   width: 100%;
   height: 50%;
   position: relative;
-  top: -20%;
+  top: -30%;
   left: -200%;
   transform: scale(2) rotate(135deg);
   background-image: linear-gradient(100deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, .5) 100%, rgba(255, 255, 255, 0) 0%);
-  animation: shiny 5s ease-out infinite;
+  animation: shiny 3.5s ease-out infinite;
 }
 
 
@@ -179,6 +179,43 @@ main article .articleCard .actions > i {
   color: initial;
   margin-right: 20px;
 }
+
+main article .articleCard .actions > i {
+  position: relative;
+}
+
+main article .articleCard .actions > i > span {
+  display: block;
+  position: absolute;
+  top: -200%;
+  left: -300%;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-radius: 5px;
+  transform: scale(0);
+}
+
+main article .articleCard .actions > i > span::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+main article .articleCard .actions > i.fa-bookmark:hover span {
+  transform: scale(1);
+}
+
+
 
 main article .showmore {
   color: #008f00;
