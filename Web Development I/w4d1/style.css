@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header, footer {
+  width: 100vw;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: rgb(91, 213, 250);
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+
+nav > ul {
+  width: 100vw;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+nav > ul > li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100vw/4);
+  height: 100%;
+  border: 0.1rem solid rgb(250, 156, 171);
+  background-color: pink;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+main {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+main .frame {
+  width: 100%;
+  margin: 5% auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border: 0.1rem dashed rgb(91, 213, 250);
+}
+
+main .frame > img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: calc(10%/6);
+}
+
+/* portrait layout */
+@media only screen and (orientation: portrait) {
+  header, footer {
+    height: 10rem;
+    font-size: 1.5rem;
+  }
+
+  nav > ul {
+    flex-direction: column;
+    height: 15rem;
+  }
+
+  nav > ul > li{
+    width: 100%;
+  }
+}
+
+/* for smart phones */
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+  main .frame > img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
