@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* colour palette setting */
+:root {
+  --red: rgb(249, 65, 68);
+  --orange: rgb(243, 114, 44);
+  --tangerine: rgb(248, 150, 30);
+  --yellow: rgb(249, 199, 79);
+  --green: rgb(144, 190, 109);
+  --darkgreen: rgb(67, 170, 139);
+  --grey: rgb(87, 117, 144);
+}
+
+body {
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template: calc(100vh / 12) calc(100vh / 12) 1fr calc(100vh / 12) / 70% 30%;
+  text-align: center;
+}
+
+/* centerize the letters inside of elements */
+header, nav, aside, footer, .heading, article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: var(--red);
+  grid-column: 1 / -1;
+}
+
+nav {
+  background-color: var(--grey);
+  grid-column: 1 / -1;
+}
+
+section {
+  display: grid;
+  grid-template-rows: 10% 10% 1fr;
+  background-color: var(--green);
+  grid-row: 3;
+  padding: 1rem;
+}
+
+section > .heading {
+  background-color: var(--tangerine);
+  grid-row: 2;
+}
+
+section > article {
+  background-color: var(--darkgreen);
+  grid-row: 3;
+}
+
+aside {
+  background-color:var(--yellow);
+  grid-row: 3;
+}
+
+footer {
+  background-color: var(--orange);
+  grid-column: 1 / -1;
+  grid-row: -1 / -2;
+}
+
+/* for mobile */
+@media only screen and (orientation: portrait) and (max-width: 425px) {
+  body {
+    grid-template: calc(100vh / 12) calc(100vh / 12) 4fr 1fr calc(100vh / 12) / 70% 30%;
+  }
+  
+  section {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  aside {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+}
+
+
+/* for tablet */
+@media only screen and (max-width: 1024px) {
+  body {
+    width: 100vw;
+  }
+}
