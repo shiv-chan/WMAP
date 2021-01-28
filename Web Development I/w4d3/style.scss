@@ -1,0 +1,39 @@
+@import './colors';
+@import './darkmode';
+@import './navbar';
+@import './header';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+section {
+  background-color: $green;
+  
+  .heading {
+    @extend %centerize;
+    background-color: $tangerine;
+  }
+
+  article {
+    @extend %centerize;
+    background-color: $darkgreen;
+  }
+}
+
+aside {
+  @extend %centerize;
+  background-color: $yellow;
+}
+
+footer {
+  @extend %centerize;
+  @extend %fullWidth;
+  background-color: $orange;
+}

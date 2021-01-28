@@ -1,0 +1,10 @@
+@mixin flexDirection($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-evenly;
+}
+
+nav {
+  background-color: $grey;
+  @include flexDirection(row);
+}

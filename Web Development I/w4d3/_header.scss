@@ -1,0 +1,17 @@
+%centerize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%fullWidth {
+  grid-column: 1 / -1;
+  height: 100px;
+}
+
+
+header {
+  @extend %centerize;
+  @extend %fullWidth;
+  background-color: $red;
+}
