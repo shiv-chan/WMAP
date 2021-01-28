@@ -7,4 +7,5 @@
 nav {
   background-color: $grey;
   @include flexDirection(row);
+  @include colorToggle($grey);
 }

@@ -1,4 +1,11 @@
 // switch text colour depends on its background colour
-
+@mixin colorToggle($color) {
+  background-color: $color;
+  @if $color == $red or $orange or $darkgreen or $grey {
+    color: #ffffff;
+  } @else {
+    color: #000000;
+  }
+}
 
 

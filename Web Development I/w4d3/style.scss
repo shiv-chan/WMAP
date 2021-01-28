@@ -24,6 +24,7 @@ section {
   article {
     @extend %centerize;
     background-color: $darkgreen;
+    @include colorToggle($darkgreen);
   }
 }
 
@@ -36,4 +37,5 @@ footer {
   @extend %centerize;
   @extend %fullWidth;
   background-color: $orange;
+  @include colorToggle($orange);
 }

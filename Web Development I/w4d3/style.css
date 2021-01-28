@@ -10,6 +10,8 @@ nav {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  background-color: #577590;
+  color: #ffffff;
 }
 
 header, section .heading, section article, aside, footer {
@@ -31,6 +33,8 @@ header, footer {
 
 header {
   background-color: #f94144;
+  background-color: #f94144;
+  color: #ffffff;
 }
 
 * {
@@ -54,6 +58,8 @@ section .heading {
 
 section article {
   background-color: #43aa8b;
+  background-color: #43aa8b;
+  color: #ffffff;
 }
 
 aside {
@@ -62,5 +68,7 @@ aside {
 
 footer {
   background-color: #f3722c;
+  background-color: #f3722c;
+  color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */
