@@ -274,6 +274,9 @@ footer ul {
     -ms-grid-columns: (minmax(5%, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(5%, 1fr));
   }
+  .searchBar input {
+    width: 20%;
+  }
   img.square {
     grid-column: span 4;
     grid-row: span 1;
