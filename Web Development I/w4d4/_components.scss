@@ -1,0 +1,100 @@
+.logo {
+  font-family: $logo-font;
+  font-size: 25px;
+  line-height: 39.5px;
+  color: $primary-color;
+}
+
+//links on header and footer
+ul {
+  width: 50%;
+  @include flexbox(space-between);
+  align-items: center;
+  
+  li {
+    list-style-type: none;
+    
+    &:hover {
+      transform: scale(1.2);
+      transition: transform .2s ease;
+    }
+  }
+}
+
+button {
+  width: 80px;
+  height: 25px;
+  margin: 10px 0;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: $primary-color;
+  color: #ffffff;
+  outline: none;
+
+  &:hover, &:active {
+    color: aqua;
+  }
+}
+
+.searchBar {
+  width: 100%;
+  position: sticky;
+  top: 45px;
+  background-color: #ffffff;
+
+  input {
+    width: 60%;
+    background-color: $search-bg-color;
+    border: none;
+    border-radius: 15px;
+    padding: .5rem;
+    margin: 10px;
+    outline: none;
+
+    //place the icon in the placeholder
+    &::placeholder {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: #000000;
+    }
+
+    //event effects
+    &:hover {
+      &::placeholder {
+        color: lighten($color: #000000, $amount: 50%);
+      }
+    }
+
+    &:focus {
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+//images
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &.square {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  &.holizontal {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  &.vertical {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+

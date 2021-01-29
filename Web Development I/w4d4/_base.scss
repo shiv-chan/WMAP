@@ -1,0 +1,26 @@
+// reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//reset link style
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+//colour
+$hf-bg-color: #EAECFF; // for header and footer
+$primary-color: #3C64B1;  //for logo and button
+$search-bg-color: #F2EEEE;
+
+//font
+$logo-font: 'Lobster', cursive;
+$main-font: 'Mulish', sans-serif;
+
+//breakpoint
+$tablet: 426px;
+$laptop: 768px;
+$desktop: 1025px;
