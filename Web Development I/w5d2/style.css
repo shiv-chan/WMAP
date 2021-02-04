@@ -32,7 +32,7 @@ th {
 
 .form {
   width: 450px;
-  margin: 0 auto;
+  margin: 30px auto;
   position: relative;
   left: 100px;
 }
@@ -49,4 +49,14 @@ form dl dt {
 
 form dl dd{
   width: 100%;
+}
+
+button {
+  padding: 2px;
+}
+
+#submitBtn {
+  position: relative;
+  left: 100px;
+  margin-top: 10px;
 }
