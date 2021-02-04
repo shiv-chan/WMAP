@@ -2,7 +2,7 @@
 
 ### :warning: Issue
 **Update the table**<br>
-In order to update the table, I wanted to remove all `tr` except for the first one which is the header of the table.<br>
+In order to update the table, I wanted to remove all `<tr>` except for the first one which is the header of the table.<br>
 First, I create the function named "removeDataItems" like the following. <br>This runs with an argument `tableRows` when "See Today's Meals" button get clicked. 
 
 ```js
