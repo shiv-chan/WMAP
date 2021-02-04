@@ -18,11 +18,21 @@ let meal = [
 
 const table = document.querySelector('table');
 const updateBtn = document.getElementById('updateBtn');
+const tableRows = document.getElementsByTagName('tr');
 const dataItems = document.getElementsByTagName('td');
 const submitBtn = document.getElementById('submitBtn');
 
+//if there are tr elements, delete all.
+// When iterating over an array and modifying it, start at the last index to avoid side effects to the current index position when you remove items
+function removeDataItems(el){
+  for(let i = el.length - 1; i > 0; i--){
+    el[i].remove();
+  }
+}
+
 
 function updateTable(arr) {
+    removeDataItems(tableRows);
   for (let i = 0; i < arr.length; i++) {
     let tr = document.createElement('tr');
 		for (let key in arr[i]) {
@@ -59,5 +69,6 @@ submitBtn.addEventListener('click', function(){
   meal.push(obj);
   alert(`You entered the following:\n・Name: ${nameInput}\n・Price: ${priceInput}\n・Popularity: ${popularityInput}`);
   document.mealForm.reset();
+  updateTable(meal);
 });
 
