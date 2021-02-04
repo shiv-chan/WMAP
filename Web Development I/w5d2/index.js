@@ -44,9 +44,7 @@ function updateTable(arr) {
 	}
 }
 
-
-updateBtn.addEventListener('click', function(){
-  updateTable(meal);
+function hoverDatas(){
   for(let i = 0; i < dataItems.length; i++){
     dataItems[i].addEventListener('mouseover', function(){
       this.style.backgroundColor = "orangered";
@@ -55,6 +53,12 @@ updateBtn.addEventListener('click', function(){
       this.style.backgroundColor = "initial";
     });
   }
+}
+
+
+updateBtn.addEventListener('click', function(){
+  updateTable(meal);
+  hoverDatas();
 });
 
 
@@ -70,5 +74,6 @@ submitBtn.addEventListener('click', function(){
   alert(`You entered the following:\n・Name: ${nameInput}\n・Price: ${priceInput}\n・Popularity: ${popularityInput}`);
   document.mealForm.reset();
   updateTable(meal);
+  hoverDatas();
 });
 
