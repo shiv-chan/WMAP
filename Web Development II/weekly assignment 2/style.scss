@@ -63,10 +63,19 @@ main {
       padding: 5rem;
 
       p.quote {
+        position: relative;
         font-family: $quote-font;
         font-size: 40px;
         line-height: 45px;
         margin-bottom: 4rem;
+
+        &::before {
+          content: open-quote;
+          font-size: 100px;
+          position: absolute;
+          top: -15%;
+          left: 45%;
+        }
       }
 
       figcaption {
