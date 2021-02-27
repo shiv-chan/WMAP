@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,23 +13,34 @@ body {
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  height: 60%;
+  width: 1000px;
+  margin: 3rem auto;
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-align: center;
 }
 
 header h1 {
-  margin: 0 auto 1rem auto;
+  margin-right: 3rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 300px;
+          flex: 0 0 300px;
+  -ms-flex-item-align: beseline;
+      -ms-grid-row-align: beseline;
+      align-self: beseline;
 }
 
 header button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   border: none;
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
@@ -39,6 +51,23 @@ header button {
 }
 
 main {
+  height: 650px;
+  margin: 3rem auto;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 20px 5px #bfbfbf;
+          box-shadow: 0px 0px 20px 5px #bfbfbf;
+}
+
+main figure {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+  grid-auto-rows: 650px;
+}
+
+main figure blockquote {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,5 +81,25 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 3rem;
+  text-align: center;
+  padding: 5rem;
+}
+
+main figure blockquote p.quote {
+  font-family: "Amiri", serif;
+  font-size: 40px;
+  line-height: 45px;
+  margin-bottom: 4rem;
+}
+
+main figure blockquote figcaption {
+  font-size: 15px;
+  color: steelblue;
+}
+
+main figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

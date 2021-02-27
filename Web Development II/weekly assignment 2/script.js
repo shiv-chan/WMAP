@@ -40,20 +40,36 @@ const quotes = [
 	{
 		quote: 'Strive not to be a success, but rather to be of value.',
 		author: 'Albert Einstein',
-	},
+	}
 ];
+
+const images = [
+  'https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjB8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1492724724894-7464c27d0ceb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjh8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTF8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1543716091-a840c05249ec?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTJ8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTl8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1483086431886-3590a88317fe?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzV8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nzl8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1565785992686-8fcc79300dcb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTExfHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1546697710-9877687facd0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE3fHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjcwfHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+]
 
 const button = document.querySelector('button');
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
+const image = document.querySelector('img');
 
 //generate a random number 0 to 10
 const genNum = () => {
-	return Math.floor(Math.random() * 10 + 1);
+	return Math.floor(Math.random() * 10);
 };
 
 button.addEventListener('click', () => {
-	const indexNum = genNum();
-	quote.textContent = `${quotes[indexNum].quote}`;
-	author.textContent = `${quotes[indexNum].author}`;
+	const quoteIndex = genNum();
+	quote.textContent = `${quotes[quoteIndex].quote}`;
+  author.textContent = `${quotes[quoteIndex].author}`;
+  const imageIndex = genNum();
+  image.setAttribute('src', images[imageIndex]);
 });
