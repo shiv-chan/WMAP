@@ -112,3 +112,43 @@ main figure img {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+@media screen and (max-width: 1500px) {
+  .container {
+    width: 500px;
+  }
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header h1,
+  header button {
+    margin: 0;
+    -webkit-box-flex: initial;
+        -ms-flex: initial;
+            flex: initial;
+  }
+  header button {
+    margin-top: 1rem;
+  }
+  main {
+    width: 100%;
+  }
+  main figure {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+  main figure blockquote {
+    height: 100%;
+  }
+  main figure img {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    -webkit-filter: opacity(40%);
+            filter: opacity(40%);
+  }
+}
