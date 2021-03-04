@@ -44,7 +44,7 @@ const quotes = [
 	{
 		quote: 'Strive not to be a success, but rather to be of value.',
 		author: 'Albert Einstein'
-	},
+	}
 ];
 
 const images = [
@@ -58,7 +58,7 @@ const images = [
 	'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nzl8fG5hdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
 	'https://images.unsplash.com/photo-1565785992686-8fcc79300dcb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTExfHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
 	'https://images.unsplash.com/photo-1546697710-9877687facd0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE3fHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-	'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjcwfHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+	'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjcwfHxuYXR1cmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
 ];
 
 const button = document.querySelector('button');
