@@ -1,0 +1,23 @@
+.noFound {
+  text-align: center;
+  font-weight: bold;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hl {
+  background: #ffc600;
+}
+
+.image > img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+tr:nth-child(even) {
+  background-color: #edeef7;
+}
