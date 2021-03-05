@@ -19,19 +19,16 @@ fetch('https://jsonplaceholder.typicode.com/photos?_limit=500')
 
 
 function updateData(arr) {
-	const tableData = arr.map((photo) => {
+	const tableData = arr.map((item) => {
 			const regex = new RegExp(`^${input.value}`); //begin-with match
-			const photoId = photo.id.toString().replace(regex, `<span class='hl'>${input.value}</span>`); //highlight matches
+			const itemId = item.id.toString().replace(regex, `<span class='hl'>${input.value}</span>`); //highlight matches
 
-			return `<tr><td class="id">${photoId}</td><td class="albumId">${photo.albumId}</td><td class="title">${photo.title}</td><td class="image"><img src="${photo.url}"></td><td class="thumbnail"><img src="${photo.thumbnailUrl}"></td></tr>`;
+			return `<tr><td class="id">${itemId}</td><td class="albumId">${item.albumId}</td><td class="title">${item.title}</td><td class="image"><img src="${item.url}"></td><td class="thumbnail"><img src="${item.thumbnailUrl}"></td></tr>`;
 		})
 		.join('');
 
 	tBody.innerHTML = tableData;
 }
-
-//onload
-//window.addEventListener('load', showData);
 
 //click button
 btn.addEventListener('click', function (e) {
