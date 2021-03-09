@@ -17,20 +17,21 @@ $snow-bg-color: #02DAFF; */
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
   background-color: var(--backgroundColor);
   font-family: 'Roboto', sans-serif;
   position: relative;
-  height: 100vh;
   display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 main {
-	width: 360px;
-  margin: 20px auto;
+  width: 360px;
+  margin: 30px auto;
   color: var(--textColor);
   overflow-x: hidden;
   display: flex;
@@ -54,6 +55,8 @@ header input {
   border-radius: 20px;
   border: 1px solid var(--headerColor);
   padding: 5px;
+  color: var(--textColor);
+  font-weight: 900;
   text-align: center;
   background-color: transparent;
   outline: none;
@@ -76,6 +79,10 @@ header i {
 }
 
 /* section top*/
+section {
+  width: 305px;
+}
+
 .sectionTop {
   position: relative;
   height: 400px;
