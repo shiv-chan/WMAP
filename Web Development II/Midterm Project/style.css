@@ -31,7 +31,7 @@ body {
 
 main {
   width: 360px;
-  margin: 30px auto;
+  margin: 10px auto;
   color: var(--textColor);
   overflow-x: hidden;
   display: flex;
@@ -122,6 +122,7 @@ section {
 hr {
   border: none;
   height: 1px;
+  margin-top: 5px;
   background-color: var(--textColor);
 }
 

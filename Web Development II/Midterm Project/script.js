@@ -275,7 +275,7 @@ fetch(
 	})
 	.then((data) => {
 		allData = data;
-   updateBg(allData);
+		updateBg(allData);
 		updateContent(allData);
 		console.log(data);
 	})
@@ -288,8 +288,8 @@ const fetchData = () => {
 	)
 		.then((res) => {
 			if (res.status !== 200) {
-        input.value = 'vancouver';
-        fetchData();
+				input.value = 'vancouver';
+				fetchData();
 				console.log(`Error: ${res.status}`);
 			}
 			return res.json();
@@ -297,8 +297,8 @@ const fetchData = () => {
 		.then((data) => {
 			allData = data;
 			updateBg(allData);
-      updateContent(allData);
-      input.value = '';
+			updateContent(allData);
+			input.value = '';
 			console.log(data);
 		})
 		.catch((err) => console.log(`Error: ${err}`));
@@ -367,7 +367,7 @@ const updateBg = (arr) => {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
 		document.documentElement.style.setProperty('--textColor', '#FFF');
 		main.style.setProperty('background-image', 'url(./image/fewCloud.png)');
-		main.style.setProperty('background-position', '20px 85px');
+		main.style.setProperty('background-position', '20px 130px');
 		kanji.textContent = '晴';
 	} else if (icon === '03d' || icon === '03n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#07805D');
@@ -403,13 +403,13 @@ const updateBg = (arr) => {
 		document.documentElement.style.setProperty('--backgroundColor', '#02DAFF');
 		document.documentElement.style.setProperty('--textColor', '#FF7171');
 		main.style.setProperty('background-image', 'url(./image/snow.png)');
-		main.style.setProperty('background-position', '20px, 150px');
+		main.style.setProperty('background-position', '20px 145px');
 		kanji.textContent = '雪';
 	} else if (icon === '50d' || icon === '50n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
 		document.documentElement.style.setProperty('--textColor', '#FFF');
 		main.style.setProperty('background-image', 'url(./image/mist.png)');
-		main.style.setProperty('background-position', '0, 0');
+		main.style.setProperty('background-position', '10px 150px');
 		kanji.textContent = '霧';
 	}
 };
