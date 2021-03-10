@@ -391,7 +391,7 @@ const updateBg = (arr) => {
 		document.documentElement.style.setProperty('--backgroundColor', '#0D60F2');
 		document.documentElement.style.setProperty('--textColor', '#FFF');
 		main.style.setProperty('background-image', 'url(./image/rain.png)');
-		main.style.setProperty('background-position', '-50px 70px');
+		main.style.setProperty('background-position', '-50px 100px');
 		kanji.textContent = '雨';
 	} else if (icon === '11d' || icon === '11n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#000000');
