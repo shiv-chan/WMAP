@@ -1,5 +1,7 @@
 const input = document.querySelector('input[type="text"]');
 const updateBtn = document.querySelector('i.fa-sync-alt');
+const suggestion = document.querySelector('.suggestion');
+const listItems = document.getElementsByTagName('li');
 const main = document.querySelector('main');
 const date = document.querySelector('.date');
 const city = document.querySelector('.city');
@@ -434,13 +436,38 @@ const updateBg = (arr) => {
 //find match on search
 const findMatches = (typedWord) => {
 	return cities.filter(city => {
-		const regex = new RegExp(typedWord, 'gi');
+		const regex = new RegExp(`^${typedWord}`, 'i');
 		return city.name.match(regex);
 	});
 }
 
+//create list
+const displayMatches = () => {
+	const matchedCities = findMatches(input.value);
+	const html = matchedCities.map(city => {
+		const regex = new RegExp(`^${input.value}`, 'i');
+		const cityName = city.name.replace(regex, `<span class='hl'>${input.value}</span>`);
+		const countryCode = city.country.replace(regex, `<span class='hl'>${input.value}</span>`);
+
+		return `<li>${cityName}, ${countryCode}</li>`;
+	}).join('');
+
+	suggestion.innerHTML = html;
+}
+
 // Hook up the event listeners
-input.addEventListener('keyup', (e) => {
+input.addEventListener('input', (e) => {
+	const word = input.value.trim();
+	displayMatches();
+	if(word !== ''){
+		suggestion.classList.add('show');
+		input.classList.add('inputStyleToggle');
+	} else if(word === ''){
+		suggestion.classList.remove('show');
+		input.classList.remove('inputStyleToggle');
+	}
+	console.log(input.value);
+
 	if (e.key === 'Enter') {
 		fetchData();
 	}

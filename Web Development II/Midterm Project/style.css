@@ -116,6 +116,10 @@ header i {
   border-radius: 20px 20px 0 0;
 }
 
+.hl {
+  background: #ffc600;
+}
+
 /* section top*/
 section {
   width: 305px;
