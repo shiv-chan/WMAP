@@ -1,7 +1,6 @@
 const input = document.querySelector('input[type="text"]');
 const updateBtn = document.querySelector('i.fa-sync-alt');
 const suggestion = document.querySelector('.suggestion');
-const listItems = document.getElementsByTagName('li');
 const main = document.querySelector('main');
 const date = document.querySelector('.date');
 const city = document.querySelector('.city');
@@ -316,6 +315,8 @@ const fetchData = () => {
 			updateBg(allData);
 			updateContent(allData);
 			input.value = '';
+			suggestion.classList.remove('show');
+			input.classList.remove('inputStyleToggle');
 			console.log(data);
 		})
 		.catch((err) => console.log(`Error: ${err}`));
@@ -444,6 +445,9 @@ const findMatches = (typedWord) => {
 //create list
 const displayMatches = () => {
 	const matchedCities = findMatches(input.value);
+	if(matchedCities.length == 0){
+		suggestion.innerHTML = '<li>Nothing found</li>';
+	} else {
 	const html = matchedCities.map(city => {
 		const regex = new RegExp(`^${input.value}`, 'i');
 		const cityName = city.name.replace(regex, `<span class='hl'>${input.value}</span>`);
@@ -454,6 +458,7 @@ const displayMatches = () => {
 
 	suggestion.innerHTML = html;
 }
+}
 
 // Hook up the event listeners
 input.addEventListener('input', (e) => {
@@ -462,15 +467,30 @@ input.addEventListener('input', (e) => {
 	if(word !== ''){
 		suggestion.classList.add('show');
 		input.classList.add('inputStyleToggle');
+		let lis = document.querySelectorAll('li');
+		for (let li of lis){
+				li.addEventListener('click', () => {
+				input.value = li.innerText;
+				suggestion.classList.remove('show');
+				input.classList.remove('inputStyleToggle');
+			}); 
+		}
 	} else if(word === ''){
 		suggestion.classList.remove('show');
 		input.classList.remove('inputStyleToggle');
 	}
-	console.log(input.value);
+});
 
+input.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		fetchData();
 	}
 });
 
 updateBtn.addEventListener('click', fetchData);
+
+window.addEventListener('keyup', (e) => {
+	if(e.key === 'Enter' && input.value !== ''){
+		fetchData();
+	}
+});
