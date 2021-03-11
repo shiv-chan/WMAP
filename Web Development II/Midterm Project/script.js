@@ -280,7 +280,6 @@ let cities = [];
 // 		allData = data;
 // 		updateBg(allData);
 // 		updateContent(allData);
-// 		console.log(data);
 // 	})
 // 	.catch((err) => console.log(`Error: ${err}`));
 
@@ -317,7 +316,6 @@ const fetchData = () => {
 			input.value = '';
 			suggestion.classList.remove('show');
 			input.classList.remove('inputStyleToggle');
-			console.log(data);
 		})
 		.catch((err) => console.log(`Error: ${err}`));
 };
@@ -350,7 +348,7 @@ const updateContent = (arr) => {
 
 	//weather
 	weatherMain.textContent = arr.weather[0].main;
-	weatherDescription.textContent = arr.weather[0].description;
+	weatherDescription.textContent = `- ${arr.weather[0].description}`;
 
 	//tempreture
 	presentTemp.textContent = Math.round(arr.main.temp);
@@ -448,12 +446,11 @@ const displayMatches = () => {
 	if(matchedCities.length == 0){
 		suggestion.innerHTML = '<li>Nothing found</li>';
 	} else {
-	const html = matchedCities.map(city => {
+		const html = matchedCities.map(city => {
 		const regex = new RegExp(`^${input.value}`, 'i');
 		const cityName = city.name.replace(regex, `<span class='hl'>${input.value}</span>`);
 		const countryCode = city.country.replace(regex, `<span class='hl'>${input.value}</span>`);
-
-		return `<li>${cityName}, ${countryCode}</li>`;
+		return `<li>${cityName}, ${(city.state == '') ? '' : city.state + ', '}${countryCode}</li>`;
 	}).join('');
 
 	suggestion.innerHTML = html;
@@ -461,6 +458,7 @@ const displayMatches = () => {
 }
 
 // Hook up the event listeners
+//toggle the suggestion list
 input.addEventListener('input', (e) => {
 	const word = input.value.trim();
 	displayMatches();
@@ -481,16 +479,18 @@ input.addEventListener('input', (e) => {
 	}
 });
 
+//click enter to fetch data
 input.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		fetchData();
 	}
 });
 
-updateBtn.addEventListener('click', fetchData);
-
 window.addEventListener('keyup', (e) => {
 	if(e.key === 'Enter' && input.value !== ''){
 		fetchData();
 	}
 });
+
+//click the update icon to fetch data
+updateBtn.addEventListener('click', fetchData);
