@@ -47,19 +47,22 @@ main {
 
 header {
   color: var(--headerColor);
+  position: relative;
 }
 
 header input {
   width: 200px;
-  height: 24px;
+  height: 30px;
   border-radius: 20px;
+  background-color: var(--backgroundColor);
   border: 1px solid var(--headerColor);
   padding: 5px;
   color: var(--textColor);
   font-weight: 900;
   text-align: center;
-  background-color: transparent;
   outline: none;
+  position: inherit;
+  z-index: 2;
 }
 
 header input::placeholder {
@@ -74,13 +77,49 @@ header input:focus {
 }
 
 header i {
-  margin-bottom: 1.5rem;
   cursor: pointer;
+}
+
+.suggestion {
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--headerColor);
+  border-top: none;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 15px;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+  display: none;
+  list-style-type: none;
+}
+
+.suggestion li {
+  padding: 0.25rem 0;
+}
+
+.suggestion li:first-of-type {
+  padding-top: 1.4rem;
+}
+
+.suggestion li:last-of-type {
+  padding-bottom: 0.7rem;
+}
+
+.show {
+  display: block;
+}
+
+.inputStyleToggle {
+  border-bottom: 1px dashed var(--headerColor);
+  border-radius: 20px 20px 0 0;
 }
 
 /* section top*/
 section {
   width: 305px;
+  margin-top: 1.5rem;
 }
 
 .sectionTop {
