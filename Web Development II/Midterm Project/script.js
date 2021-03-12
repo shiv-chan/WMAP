@@ -1,5 +1,5 @@
 const input = document.querySelector('input[type="text"]');
-const updateBtn = document.querySelector('i.fa-sync-alt');
+const updateBtn = document.querySelector('i.fa-search');
 const suggestion = document.querySelector('.suggestion');
 const main = document.querySelector('main');
 const date = document.querySelector('.date');
@@ -377,13 +377,13 @@ const updateBg = (arr) => {
 	const icon = arr.weather[0].icon;
 	if (icon === '01d' || icon === '01n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#4B8B16');
 		main.style.setProperty('background-image', 'url(./image/sunny.png)');
 		main.style.setProperty('background-position', '60px 120px');
 		kanji.textContent = '晴';
 	} else if (icon === '02d' || icon === '02n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#4B8B16');
 		main.style.setProperty('background-image', 'url(./image/fewCloud.png)');
 		main.style.setProperty('background-position', '20px 130px');
 		kanji.textContent = '晴';
@@ -425,7 +425,7 @@ const updateBg = (arr) => {
 		kanji.textContent = '雪';
 	} else if (icon === '50d' || icon === '50n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#FF7171');
 		main.style.setProperty('background-image', 'url(./image/mist.png)');
 		main.style.setProperty('background-position', '10px 150px');
 		kanji.textContent = '霧';
@@ -443,14 +443,23 @@ const findMatches = (typedWord) => {
 //create list
 const displayMatches = () => {
 	const matchedCities = findMatches(input.value);
-	if(matchedCities.length == 0){
+	const matchedCitiesArray = [];
+	for(matchedCity of matchedCities){
+		const name = matchedCity.name;
+		const state = matchedCity.state;
+		const country = matchedCity.country;
+		matchedCitiesArray.push(`${name}, ${(state == '') ? '' : state + ', '}${country}`);
+	}
+	
+	const deduplicatedArray = matchedCitiesArray.filter((value, index, arr) => arr.indexOf(value) === index);
+
+	if(deduplicatedArray.length == 0){
 		suggestion.innerHTML = '<li>Nothing found</li>';
 	} else {
-		const html = matchedCities.map(city => {
+		const html = deduplicatedArray.map(city => {
 		const regex = new RegExp(`^${input.value}`, 'i');
-		const cityName = city.name.replace(regex, `<span class='hl'>${input.value}</span>`);
-		const countryCode = city.country.replace(regex, `<span class='hl'>${input.value}</span>`);
-		return `<li>${cityName}, ${(city.state == '') ? '' : city.state + ', '}${countryCode}</li>`;
+		const cityName = city.replace(regex, `<span class='hl'>${input.value}</span>`);
+		return `<li>${cityName}</li>`;
 	}).join('');
 
 	suggestion.innerHTML = html;
@@ -461,8 +470,8 @@ const displayMatches = () => {
 //toggle the suggestion list
 input.addEventListener('input', (e) => {
 	const word = input.value.trim();
-	displayMatches();
 	if(word !== ''){
+		displayMatches();
 		suggestion.classList.add('show');
 		input.classList.add('inputStyleToggle');
 		let lis = document.querySelectorAll('li');
@@ -473,11 +482,14 @@ input.addEventListener('input', (e) => {
 				input.classList.remove('inputStyleToggle');
 			}); 
 		}
-	} else if(word === ''){
-		suggestion.classList.remove('show');
-		input.classList.remove('inputStyleToggle');
-	}
+	} 
 });
+
+//click somewhere to hide suggestions
+window.addEventListener('click', () => {
+	suggestion.classList.remove('show');
+	input.classList.remove('inputStyleToggle');
+})
 
 //click enter to fetch data
 input.addEventListener('keyup', (e) => {
