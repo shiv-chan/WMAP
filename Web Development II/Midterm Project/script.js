@@ -1,5 +1,6 @@
 const input = document.querySelector('input[type="text"]');
-const updateBtn = document.querySelector('i.fa-sync-alt');
+const updateBtn = document.querySelector('i.fa-search');
+const suggestion = document.querySelector('.suggestion');
 const main = document.querySelector('main');
 const date = document.querySelector('.date');
 const city = document.querySelector('.city');
@@ -132,6 +133,7 @@ const isoCountries = {
 	KE: 'Kenya',
 	KI: 'Kiribati',
 	KR: 'Korea',
+	KP: 'North Korea',
 	KW: 'Kuwait',
 	KG: 'Kyrgyzstan',
 	LA: "Lao People's Democratic Republic",
@@ -262,24 +264,37 @@ const isoCountries = {
 	ZM: 'Zambia',
 	ZW: 'Zimbabwe',
 };
+let cities = [];
 
 //fetch data of Vancouver by default
-fetch(
-	`http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`
-)
+// fetch(
+// 	`http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`
+// )
+// 	.then((res) => {
+// 		if (res.status !== 200) {
+// 			console.log(`Error: ${res.status}`);
+// 		}
+// 		return res.json();
+// 	})
+// 	.then((data) => {
+// 		allData = data;
+// 		updateBg(allData);
+// 		updateContent(allData);
+// 	})
+// 	.catch((err) => console.log(`Error: ${err}`));
+
+
+//fetch the city list
+fetch('https://shiv-chan.github.io/OpenWeather-CityList/city.list.min.json')
 	.then((res) => {
-		if (res.status !== 200) {
+		if (res.status !== 200){
 			console.log(`Error: ${res.status}`);
 		}
 		return res.json();
 	})
-	.then((data) => {
-		allData = data;
-   updateBg(allData);
-		updateContent(allData);
-		console.log(data);
-	})
+	.then((data) => cities = data)
 	.catch((err) => console.log(`Error: ${err}`));
+
 
 //fetch data function
 const fetchData = () => {
@@ -288,8 +303,8 @@ const fetchData = () => {
 	)
 		.then((res) => {
 			if (res.status !== 200) {
-        input.value = 'vancouver';
-        fetchData();
+				input.value = 'vancouver';
+				fetchData();
 				console.log(`Error: ${res.status}`);
 			}
 			return res.json();
@@ -297,9 +312,10 @@ const fetchData = () => {
 		.then((data) => {
 			allData = data;
 			updateBg(allData);
-      updateContent(allData);
-      input.value = '';
-			console.log(data);
+			updateContent(allData);
+			input.value = '';
+			suggestion.classList.remove('show');
+			input.classList.remove('inputStyleToggle');
 		})
 		.catch((err) => console.log(`Error: ${err}`));
 };
@@ -313,6 +329,7 @@ function getCountryName(code) {
 	}
 }
 
+//update content
 const updateContent = (arr) => {
 	//date
 	const millisecondsTime = allData.dt * 1000;
@@ -331,7 +348,7 @@ const updateContent = (arr) => {
 
 	//weather
 	weatherMain.textContent = arr.weather[0].main;
-	weatherDescription.textContent = arr.weather[0].description;
+	weatherDescription.textContent = `- ${arr.weather[0].description}`;
 
 	//tempreture
 	presentTemp.textContent = Math.round(arr.main.temp);
@@ -355,19 +372,20 @@ const updateContent = (arr) => {
 	})}`;
 };
 
+//update background
 const updateBg = (arr) => {
 	const icon = arr.weather[0].icon;
 	if (icon === '01d' || icon === '01n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#4B8B16');
 		main.style.setProperty('background-image', 'url(./image/sunny.png)');
-		main.style.setProperty('background-position', '60px 85px');
+		main.style.setProperty('background-position', '60px 120px');
 		kanji.textContent = '晴';
 	} else if (icon === '02d' || icon === '02n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#4B8B16');
 		main.style.setProperty('background-image', 'url(./image/fewCloud.png)');
-		main.style.setProperty('background-position', '20px 85px');
+		main.style.setProperty('background-position', '20px 130px');
 		kanji.textContent = '晴';
 	} else if (icon === '03d' || icon === '03n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#07805D');
@@ -391,7 +409,7 @@ const updateBg = (arr) => {
 		document.documentElement.style.setProperty('--backgroundColor', '#0D60F2');
 		document.documentElement.style.setProperty('--textColor', '#FFF');
 		main.style.setProperty('background-image', 'url(./image/rain.png)');
-		main.style.setProperty('background-position', '-50px 70px');
+		main.style.setProperty('background-position', '-50px 100px');
 		kanji.textContent = '雨';
 	} else if (icon === '11d' || icon === '11n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#000000');
@@ -403,22 +421,88 @@ const updateBg = (arr) => {
 		document.documentElement.style.setProperty('--backgroundColor', '#02DAFF');
 		document.documentElement.style.setProperty('--textColor', '#FF7171');
 		main.style.setProperty('background-image', 'url(./image/snow.png)');
-		main.style.setProperty('background-position', '20px, 150px');
+		main.style.setProperty('background-position', '20px 145px');
 		kanji.textContent = '雪';
 	} else if (icon === '50d' || icon === '50n') {
 		document.documentElement.style.setProperty('--backgroundColor', '#FFCACA');
-		document.documentElement.style.setProperty('--textColor', '#FFF');
+		document.documentElement.style.setProperty('--textColor', '#FF7171');
 		main.style.setProperty('background-image', 'url(./image/mist.png)');
-		main.style.setProperty('background-position', '0, 0');
+		main.style.setProperty('background-position', '10px 150px');
 		kanji.textContent = '霧';
 	}
 };
 
+//find match on search
+const findMatches = (typedWord) => {
+	return cities.filter(city => {
+		const regex = new RegExp(`^${typedWord}`, 'i');
+		return city.name.match(regex);
+	});
+}
+
+//create list
+const displayMatches = () => {
+	const matchedCities = findMatches(input.value);
+	const matchedCitiesArray = [];
+	for(matchedCity of matchedCities){
+		const name = matchedCity.name;
+		const state = matchedCity.state;
+		const country = matchedCity.country;
+		matchedCitiesArray.push(`${name}, ${(state == '') ? '' : state + ', '}${country}`);
+	}
+	
+	const deduplicatedArray = matchedCitiesArray.filter((value, index, arr) => arr.indexOf(value) === index);
+
+	if(deduplicatedArray.length == 0){
+		suggestion.innerHTML = '<li>Nothing found</li>';
+	} else {
+		const html = deduplicatedArray.map(city => {
+		const regex = new RegExp(`^${input.value}`, 'i');
+		const cityName = city.replace(regex, `<span class='hl'>${input.value}</span>`);
+		return `<li>${cityName}</li>`;
+	}).join('');
+
+	suggestion.innerHTML = html;
+}
+}
+
 // Hook up the event listeners
+//toggle the suggestion list
+input.addEventListener('input', (e) => {
+	const word = input.value.trim();
+	if(word !== ''){
+		displayMatches();
+		suggestion.classList.add('show');
+		input.classList.add('inputStyleToggle');
+		let lis = document.querySelectorAll('li');
+		for (let li of lis){
+				li.addEventListener('click', () => {
+				input.value = li.innerText;
+				suggestion.classList.remove('show');
+				input.classList.remove('inputStyleToggle');
+			}); 
+		}
+	} 
+});
+
+//click somewhere to hide suggestions
+window.addEventListener('click', () => {
+	suggestion.classList.remove('show');
+	input.classList.remove('inputStyleToggle');
+})
+
+//click enter to fetch data
 input.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		fetchData();
 	}
 });
 
+window.addEventListener('keyup', (e) => {
+	if(e.key === 'Enter' && input.value !== ''){
+		fetchData();
+	}
+});
+
+//click the update icon to fetch data
 updateBtn.addEventListener('click', fetchData);
