@@ -1,5 +1,6 @@
 const input = document.querySelector('input[type="text"]');
-const updateBtn = document.querySelector('i.fa-search');
+const searchBtn = document.querySelector('i.fa-search');
+const refreshBtn = document.querySelector('i.fa-sync');
 const suggestion = document.querySelector('.suggestion');
 const main = document.querySelector('main');
 const date = document.querySelector('.date');
@@ -267,21 +268,21 @@ const isoCountries = {
 let cities = [];
 
 //fetch data of Vancouver by default
-// fetch(
-// 	`http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`
-// )
-// 	.then((res) => {
-// 		if (res.status !== 200) {
-// 			console.log(`Error: ${res.status}`);
-// 		}
-// 		return res.json();
-// 	})
-// 	.then((data) => {
-// 		allData = data;
-// 		updateBg(allData);
-// 		updateContent(allData);
-// 	})
-// 	.catch((err) => console.log(`Error: ${err}`));
+fetch(
+	`http://api.openweathermap.org/data/2.5/weather?q=vancouver&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`
+)
+	.then((res) => {
+		if (res.status !== 200) {
+			console.log(`Error: ${res.status}`);
+		}
+		return res.json();
+	})
+	.then((data) => {
+		allData = data;
+		updateBg(allData);
+		updateContent(allData);
+	})
+	.catch((err) => console.log(`Error: ${err}`));
 
 
 //fetch the city list
@@ -298,13 +299,15 @@ fetch('https://shiv-chan.github.io/OpenWeather-CityList/city.list.min.json')
 
 //fetch data function
 const fetchData = () => {
-	fetch(
-		`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`
-	)
+	let queryEndpoint = `http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`;
+
+	let cityIdEndpoint = `http://api.openweathermap.org/data/2.5/weather?id=${allData.id}&units=metric&appid=22fafb856d9955a1dbb7727e950adf36`;
+
+	input.value === '' ? endpoint = cityIdEndpoint : endpoint = queryEndpoint;
+	
+	fetch(endpoint)
 		.then((res) => {
 			if (res.status !== 200) {
-				input.value = 'vancouver';
-				fetchData();
 				console.log(`Error: ${res.status}`);
 			}
 			return res.json();
@@ -492,17 +495,12 @@ window.addEventListener('click', () => {
 })
 
 //click enter to fetch data
-input.addEventListener('keyup', (e) => {
-	if (e.key === 'Enter') {
-		fetchData();
-	}
-});
+input.addEventListener('keyup', (e) => e.key === 'Enter' ? fetchData() : '');
 
-window.addEventListener('keyup', (e) => {
-	if(e.key === 'Enter' && input.value !== ''){
-		fetchData();
-	}
-});
+window.addEventListener('keyup', (e) => e.key === 'Enter' ? fetchData() : '');
 
-//click the update icon to fetch data
-updateBtn.addEventListener('click', fetchData);
+//click the search icon to fetch data
+searchBtn.addEventListener('click', () => input.value !== '' ? fetchData() : '');
+
+//click the refresh icon to fetch data
+refreshBtn.addEventListener('click', fetchData);
