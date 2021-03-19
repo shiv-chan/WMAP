@@ -83,9 +83,9 @@ async function convert() {
     //display results
 
     displayFrom.textContent = ` ${fromCurr}`;
-    fromAmount.textContent = fromInput.value;
+    fromAmount.textContent = formatNumber(fromInput.value);
     displayTo.textContent = ` ${toCurr}`;
-    toAmount.textContent = `${(fromInput.value * rate).toFixed(2)}`;
+    toAmount.textContent = `${formatNumber((fromInput.value * rate).toFixed(2))}`;
     toInput.value = `${(fromInput.value * rate).toFixed(2)}`;
     main.style.display = 'flex';
     
@@ -105,6 +105,10 @@ function switchCurr() {
     selects[1].selectedOptions[0].textContent = tmpSelect;
 }
 
+//number formatting
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
 
 convertBtn.addEventListener('click', convert);
 switchBtn.addEventListener('click', switchCurr);
