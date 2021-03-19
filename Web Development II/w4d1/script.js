@@ -6,7 +6,10 @@ const endpoint = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
 
 const fetchData = () => {
   fetch(endpoint)
-    .then (res => res.json())
+    .then (res => {
+      res.json()
+      console.log(res);
+    })
     .then (data => books.length == 0 ? books.push(...data) : '')
     .catch (e => console.log('Error:', e))
 }
