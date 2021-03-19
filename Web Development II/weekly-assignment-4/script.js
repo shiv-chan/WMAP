@@ -9,6 +9,7 @@ const displayFrom = document.querySelector('.from');
 const displayTo = document.querySelector('.to');
 const fromAmount = document.querySelector('.fromAmount');
 const toAmount = document.querySelector('.toAmount');
+const main = document.querySelector('main');
 
 window.onload = setOptions;
 
@@ -80,11 +81,13 @@ async function convert() {
     const rate = data.response.rates[rateKey];
     
     //display results
+
     displayFrom.textContent = ` ${fromCurr}`;
     fromAmount.textContent = fromInput.value;
     displayTo.textContent = ` ${toCurr}`;
     toAmount.textContent = `${(fromInput.value * rate).toFixed(2)}`;
     toInput.value = `${(fromInput.value * rate).toFixed(2)}`;
+    main.style.display = 'flex';
     
   } catch(err) {
     console.log(`Error2: ${err}`);
