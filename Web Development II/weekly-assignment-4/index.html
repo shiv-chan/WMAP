@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <script src="https://kit.fontawesome.com/33e91fc437.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <h1>Currency Converter</h1>
+  <header>
+    <div class="fromCurrency">
+      <label for="fromInput">From Currency</label>
+      <input type="number" name="fromInput" id="fromInput" placeholder="0">
+      <select name="fromCurr" id="fromCurr"></select>
+    </div>
+    <button type="button" class="switch"><i class="fas fa-exchange-alt fa-rotate-90"></i></button>
+    <div class="toCurrency">
+      <label for="toInput">To Currency</label>
+      <input type="number" name="toInput" id="toInput" placeholder="0">
+      <select name="toCurr" id="toCurr"></select>
+    </div>
+    <button type="submit">Convert</button>
+  </header>
+  <main>
+    <h2><span class="fromAmount">1</span><span class="from">Japanese Yen</span> equals</h2>
+    <h1><span class="toAmount">0.99</span><span class="to">United States Dollar</span></h1>
+  </main>
+  <script src="api_keys.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
