@@ -18,13 +18,7 @@ body > h1
   margin: 3rem 0
   font-weight: 700
 
-header
-  @include flex
-  width: 80vw
-  max-width: 800px
-  margin: 1rem auto
-
-  button
+button
     box-shadow: inset 0px 1px 0px 0px #7a8eb9
     background: linear-gradient(to bottom, #637aad 5%, #5972a7 100%)
     background-color:  #637aad
@@ -37,7 +31,7 @@ header
     padding: 6px 12px
     text-decoration: none
     margin: 1rem
-    width: 50%
+    width: 200px
     outline: none
 
     &:hover
@@ -47,6 +41,12 @@ header
     &:active
       position: relative
       top: 1px
+
+header
+  @include flex
+  width: 80vw
+  max-width: 800px
+  margin: 1rem auto
 
   button.switch
     width: 50px
@@ -65,3 +65,15 @@ main
   h2
     margin-bottom: 0.5rem
     font-weight: 400
+
+section
+  @include flex
+
+  h1
+    margin-top: 5rem
+    margin-bottom: 1rem
+
+  button
+    width: 200px
+  
+  

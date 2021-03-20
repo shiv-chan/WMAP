@@ -28,7 +28,21 @@
     <h2><span class="fromAmount">1</span><span class="from">Japanese Yen</span> equals</h2>
     <h1><span class="toAmount">0.99</span><span class="to">United States Dollar</span></h1>
   </main>
+  <section>
+    <h1>Show Historical Rates</h1>
+    <div class="dateSelection">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" lang="en">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate">
+    </div>
+    <button class="showHistory">See the results</button>
+  </section>
+  <section class="graph">
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </section>
   <script src="api_keys.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
