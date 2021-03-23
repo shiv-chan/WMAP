@@ -3,6 +3,9 @@ const container = document.querySelector('.container');
 const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort');
 const submitBtn = document.querySelector('button[type="submit"]');
+const loopWrap = document.querySelector('.loop-wrap');
+const imageWrap1 = document.querySelector('.image-wrap1');
+const imageWrap2 = document.querySelector('.image-wrap2');
 
 let allData = [];
 
@@ -25,6 +28,25 @@ const fetchData = async() => {
   }
 }
 
+async function imageForLoopWrap () {
+  await fetchData();
+  const imageGroup1 = [];
+  const imageGroup2 = [];
+
+  const halfPoint = allData.length / 2;
+  
+  for(let i = 0; i < halfPoint; i++){
+    imageGroup1.push(`<img src=${allData[i].image_url}>`);
+  }
+
+  for(let j = halfPoint; j < allData.length; j++){
+    imageGroup2.push(`<img src=${allData[j].image_url}>`);
+  }
+  
+  imageWrap1.innerHTML = imageGroup1.join('');
+  imageWrap2.innerHTML = imageGroup2.join('');
+}
+
 function displayCards() {
   const html = allData.map((business) => {
     return `
@@ -45,7 +67,7 @@ function displayCards() {
         </div>
       </a>
     `
-  }).join();
+  }).join('');
 
   container.innerHTML = html;
 
@@ -53,6 +75,7 @@ function displayCards() {
 }
 
 async function createCards() {
+  loopWrap.style.display = 'none';
   allData = [];
   await fetchData();
   displayCards();
@@ -77,6 +100,7 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+document.addEventListener('DOMContentLoaded', imageForLoopWrap)
 submitBtn.addEventListener('click', createCards);
 searchInput.addEventListener('keyup', (e) => {
   if(e.key === 'Enter'){

@@ -17,11 +17,11 @@ $close-color: #e00543
   box-sizing: border-box
 
 body
-  @include flex(column)
+  @include flex (column)
 
-    h1, h2
-      text-align: center
-      font-family: $title-font
+  h1, h2
+    text-align: center
+    font-family: $title-font
   
   header > h1
     margin-top: 2rem
@@ -78,6 +78,42 @@ body
   select
     border-radius: 5px 
 
+//loop-wrap
+.loop-wrap
+  @include flex
+  width: 100vw
+  height: 600px
+  overflow: hidden
+  margin: 3rem
+
+  .image-wrap1, .image-wrap2
+    @include flex
+    width: auto
+    height: 100%
+
+  .image-wrap1
+    animation: loop2 120s -60s linear infinite
+
+  .image-wrap2
+    animation: loop 120s linear infinite
+
+  img
+    width: 500px
+    height: 100%
+    object-fit: cover
+
+
+@keyframes loop
+  0%
+    transform: translateX(-100%)
+  100%
+    transform: translateX(100%)
+
+@keyframes loop2
+  0%
+    transform: translateX(0%)
+  100%
+    transform: translateX(200%)
 
 //cards
 .card:nth-child(4n+1)
@@ -99,7 +135,7 @@ body
   grid-auto-rows: 400px
   width: 80vw
   max-width: 800px
-  margin: 1rem auto
+  margin: 2rem auto
   border-radius: 15px
   overflow: hidden
   text-decoration: none
