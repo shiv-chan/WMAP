@@ -6,6 +6,7 @@ const submitBtn = document.querySelector('button[type="submit"]');
 const loopWrap = document.querySelector('.loop-wrap');
 const imageWrap1 = document.querySelector('.image-wrap1');
 const imageWrap2 = document.querySelector('.image-wrap2');
+const spinner = document.getElementById("spinner");
 
 let allData = [];
 
@@ -15,6 +16,7 @@ const apikey = config.YELP_API_KEY;
 
 const fetchData = async() => {
   try {
+    spinner.removeAttribute('hidden');
     const res = await fetch(`${endpoint}&location=${searchInput.value == '' ? 'Vancouver, BC' : searchInput.value}`, {
       headers: {
         'Authorization': `Bearer ${apikey}`
@@ -22,6 +24,7 @@ const fetchData = async() => {
       })
     const data = await res.json();
     allData.push(...data.businesses);
+    spinner.setAttribute('hidden', '');
     console.log(allData);
   } catch (err) {
     console.error('Error: ', err);
@@ -70,12 +73,14 @@ function displayCards() {
   }).join('');
 
   container.innerHTML = html;
+  container.style.display = 'block';
 
   searchInput.value = '';
 }
 
 async function createCards() {
   loopWrap.style.display = 'none';
+  container.style.display = 'none';
   allData = [];
   await fetchData();
   displayCards();
