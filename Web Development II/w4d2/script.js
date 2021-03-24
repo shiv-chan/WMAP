@@ -31,26 +31,31 @@ const fetchData = async() => {
   }
 }
 
-async function imageForLoopWrap () {
-  await fetchData();
-  const imageGroup1 = [];
-  const imageGroup2 = [];
+// async function imageForLoopWrap () {
+//   await fetchData();
+//   const imageGroup1 = [];
+//   const imageGroup2 = [];
 
-  const halfPoint = allData.length / 2;
+//   const halfPoint = allData.length / 2;
   
-  for(let i = 0; i < halfPoint; i++){
-    imageGroup1.push(`<img src=${allData[i].image_url}>`);
-  }
+//   for(let i = 0; i < halfPoint; i++){
+//     imageGroup1.push(`<img src=${allData[i].image_url}>`);
+//   }
 
-  for(let j = halfPoint; j < allData.length; j++){
-    imageGroup2.push(`<img src=${allData[j].image_url}>`);
-  }
+//   for(let j = halfPoint; j < allData.length; j++){
+//     imageGroup2.push(`<img src=${allData[j].image_url}>`);
+//   }
   
-  imageWrap1.innerHTML = imageGroup1.join('');
-  imageWrap2.innerHTML = imageGroup2.join('');
-}
+//   imageWrap1.innerHTML = imageGroup1.join('');
+//   imageWrap2.innerHTML = imageGroup2.join('');
+// }
 
 function displayCards() {
+  if(allData.length === 0){
+    const notfound = `Sorry...Nothing found. Try again!`
+    container.innerHTML = notfound;
+    container.style.display = 'block';
+  }
   const html = allData.map((business) => {
     return `
       <a class="card" href=${business.url}>
@@ -105,7 +110,7 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-document.addEventListener('DOMContentLoaded', imageForLoopWrap)
+//document.addEventListener('DOMContentLoaded', imageForLoopWrap)
 submitBtn.addEventListener('click', createCards);
 searchInput.addEventListener('keyup', (e) => {
   if(e.key === 'Enter'){

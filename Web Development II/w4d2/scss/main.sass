@@ -109,10 +109,11 @@ body
 //loop-wrap
 .loop-wrap
   @include flex
+  justify-content: flex-end
   width: 100vw
   height: 600px
   overflow: hidden
-  margin: 3rem
+  margin: 3rem 0
 
   .image-wrap1, .image-wrap2
     @include flex
@@ -120,28 +121,28 @@ body
     height: 100%
 
   .image-wrap1
-    animation: loop2 120s -60s linear infinite
+    animation: loop 50s linear infinite
 
   .image-wrap2
-    animation: loop 120s linear infinite
+    animation: loop2 50s -25s linear infinite
 
   img
-    width: 500px
+    width: 600px
     height: 100%
     object-fit: cover
 
 
 @keyframes loop
   0%
-    transform: translateX(-100%)
+    transform: translateX(0)
   100%
-    transform: translateX(100%)
+    transform: translateX(200%)
 
 @keyframes loop2
   0%
-    transform: translateX(0%)
+    transform: translateX(-100%)
   100%
-    transform: translateX(200%)
+    transform: translateX(100%)
 
 //cards
 .card:nth-child(4n+1)
