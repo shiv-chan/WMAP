@@ -7,6 +7,9 @@ const loopWrap = document.querySelector('.loop-wrap');
 const imageWrap1 = document.querySelector('.image-wrap1');
 const imageWrap2 = document.querySelector('.image-wrap2');
 const spinner = document.getElementById("spinner");
+const mapBtn = document.querySelector('.mapBtn');
+const map = document.getElementById('map');
+let mapOpen = false;
 
 let allData = [];
 
@@ -89,6 +92,7 @@ async function createCards() {
   allData = [];
   await fetchData();
   displayCards();
+  initMap();
 }
 
 function sort() {
@@ -112,9 +116,24 @@ function formatNumber(num) {
 
 //document.addEventListener('DOMContentLoaded', imageForLoopWrap)
 submitBtn.addEventListener('click', createCards);
+
 searchInput.addEventListener('keyup', (e) => {
   if(e.key === 'Enter'){
     createCards();
   }
-})
+});
+
 sortSelect.addEventListener('change', sort);
+
+mapBtn.addEventListener('click', () => {
+  mapOpen = !mapOpen;
+  
+  if(mapOpen){
+    mapBtn.textContent = `Close the Map`;
+    loopWrap.style.display = 'none';
+    map.style.display = 'block';
+  } else {
+    mapBtn.textContent = `Check on Map`;
+    map.style.display = 'none';
+  }
+});
