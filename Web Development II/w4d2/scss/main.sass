@@ -104,14 +104,18 @@ body
   *
     font-family: $title-font
 
+  a
+    text-decoration: none
+    color: #000
+    &:visited
+      color: #000
+
   h1
     font-family: $text-font
     font-size: 20px
 
   p
     font-family: $text-font
-
-
 
 
 //spinner
@@ -204,6 +208,7 @@ body
   border-radius: 15px
   overflow: hidden
   text-decoration: none
+  cursor: pointer
 
   &:link, &:visited, &:hover, &:active
     color: #000
@@ -239,6 +244,17 @@ body
   ul
     list-style-type: none
     margin-top: 2rem
+
+  li
+    margin-bottom: 0.5rem
+  
+  a
+    font-weight: bold
+    color: #000
+
+    &:visited
+      color: #000
+
 
 .card:nth-child(1)
   margin-top: 4rem

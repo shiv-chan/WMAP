@@ -83,6 +83,11 @@ body {
   font-family: "Carter One", cursive; }
   #map * {
     font-family: "Carter One", cursive; }
+  #map a {
+    text-decoration: none;
+    color: #000; }
+    #map a:visited {
+      color: #000; }
   #map h1 {
     font-family: "Poppins", sans-serif;
     font-size: 20px; }
@@ -173,7 +178,8 @@ body {
   margin: 2rem auto;
   border-radius: 15px;
   overflow: hidden;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
   .card:link, .card:visited, .card:hover, .card:active {
     color: #000; }
   .card .image {
@@ -202,6 +208,13 @@ body {
   .description ul {
     list-style-type: none;
     margin-top: 2rem; }
+  .description li {
+    margin-bottom: 0.5rem; }
+  .description a {
+    font-weight: bold;
+    color: #000; }
+    .description a:visited {
+      color: #000; }
 
 .card:nth-child(1) {
   margin-top: 4rem; }
