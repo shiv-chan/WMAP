@@ -26,13 +26,16 @@ const fetchData = async() => {
       headers: {
         'Authorization': `Bearer ${apikey}`
         }
-      })
-    const data = await res.json();
-    allData.push(...data.businesses);
-    spinner.setAttribute('hidden', '');
-    console.log(allData);
+      });
+      if(res.status !== 200){
+        spinner.setAttribute('hidden', '');
+      }
+      const data = await res.json();
+      allData.push(...data.businesses);
+      spinner.setAttribute('hidden', '');
+      console.log(allData);
   } catch (err) {
-    console.error('Error: ', err);
+  console.error('Error: ', err);
   }
 }
 
@@ -57,10 +60,11 @@ const fetchData = async() => {
 
 function displayCards() {
   if(allData.length === 0){
-    const notfound = `Sorry...Nothing found. Try again!`
+    const notfound = `<h1>Sorry...Nothing found. Try again!</h1>`
     container.innerHTML = notfound;
     container.style.display = 'block';
   }
+
   const html = allData.map((business) => {
     return `
       <div class="card" id="${business.id}">
@@ -98,7 +102,7 @@ function displayCards() {
       if(markerIndex !== '') {
         initMap();
         mapOpen = true;
-        mapBtn.textContent = `Close the Map`;
+        mapBtn.innerHTML = `<i class="fas fa-map-marked-alt"></i> Close the Map`;
         loopWrap.style.display = 'none';
         map.style.display = 'block';
       }
