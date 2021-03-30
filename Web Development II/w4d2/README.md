@@ -10,7 +10,7 @@ When the user comes to the page, the page looks like this.
 <br>The user can either click the search button or hit the enter key to get the results.
 ![chrome-capture (3)-min](https://user-images.githubusercontent.com/51708229/112940490-2ba82c00-9168-11eb-964e-9e4babff89a8.gif)
 
-You can check the bubble tea places' location on the google map.
+The user also can check the bubble tea places' location on the google map.
 <br>By clicking each marker, the user can see the information of each shop. Also, the user can jump to any shop's card underneath the map when clicking the information window on the map.
 <br>This works vice versa; clicking the card itself brings the user to the map and opens the information window as well.
 
