@@ -23,7 +23,7 @@ const pAequorFactory = (num, dnaBaseArr) => {
       const targetIndex = Math.floor(Math.random() * 15);
       let targetBase = this.dna[targetIndex]; //either A, T, C, G
       let dnaBaseIndex = dnaBases.indexOf(targetBase); //index num 0~3
-      let randIndex = Math.floor(Math.random() * 4); //num 0~3
+      let randIndex = Math.floor(Math.random() * 4); //random num 0~3
       while(randIndex === dnaBaseIndex){
         randIndex = Math.floor(Math.random() * 4);
       }
