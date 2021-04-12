@@ -138,4 +138,7 @@ function idInvalidCardCompanies(arrOfInvalid) {
 }
 
 // console.log(validateCred(valid1))
-//console.log(idInvalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]))
+// console.log(idInvalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]))
+
+// let invalids = findInvalidCards(batch);
+// console.log(idInvalidCardCompanies(invalids));
