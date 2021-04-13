@@ -65,80 +65,43 @@ function findInvalidCards(arrOfCards) {
 }
 
 
-function idInvalidCardCompanies(arrOfInvalid) {
-  const invalidNumsAndComp = [];
-  arrOfInvalid.map(numbers => {
-    //Amex
-    if(numbers[0] === 3){
-      let targetIndex = invalidNumsAndComp.map((item, index) => {
-        return item.indexOf("Amex") !== -1 ? index : 0;
-    }).reduce((a, b) => a + b, 0);
-
-      if(targetIndex === 0){
-        invalidNumsAndComp.push(["Amex", numbers]);
-      } else {
-        invalidNumsAndComp[targetIndex].push(numbers);
-      }
-    } 
-
-    //Visa
-    if(numbers[0] === 4){
-      let targetIndex = invalidNumsAndComp.map((item, index) => {
-        return item.indexOf("Visa") !== -1 ? index : 0;
-    }).reduce((a, b) => a + b, 0);
-
-    if(targetIndex === 0){
-      invalidNumsAndComp.push(["Visa", numbers]);
-    } else {
-      invalidNumsAndComp[targetIndex].push(numbers);
-    }
-    }
-
-    //Mastercard
-    if(numbers[0] === 5){
-      let targetIndex = invalidNumsAndComp.map((item, index) => {
-        return item.indexOf("Mastercard") !== -1 ? index : 0;
-    }).reduce((a, b) => a + b, 0);
-
-    if(targetIndex === 0){
-      invalidNumsAndComp.push(["Mastercard", numbers]);
-      } else {
-        invalidNumsAndComp[targetIndex].push(numbers);
+function idInvalidCardCompanies(invalidNumsArr) {
+  const companies = [
+    ['Amex', []],
+    ['Visa', []],
+    ['Mastercard', []],
+    ['Discover', []],
+    ['Company not found', []]
+  ];
+  
+    for(let invalidNums of invalidNumsArr){
+      switch(invalidNums[0]){
+        case 3:
+          companies.map(company => company[0] === 'Amex' ? company[1].push(invalidNums) : '');
+          break;
+        case 4:
+          companies.map(company => company[0] === 'Visa' ? company[1].push(invalidNums) : '');
+          break;
+        case 5:
+          companies.map(company => company[0] === 'Mastercard' ? company[1].push(invalidNums) : '');
+          break;
+        case 6:
+          companies.map(company => company[0] === 'Discover' ? company[1].push(invalidNums) : '');
+          break;
+        default:
+          companies.map(company => company[0] === 'Company not found' ? company[1].push(invalidNums) : '');
+          break;
       }
     }
 
-    //Discover
-    if(numbers[0] === 6){
-      let targetIndex = invalidNumsAndComp.map((item, index) => {
-        return item.indexOf("Discover") !== -1 ? index : 0;
-    }).reduce((a, b) => a + b, 0);
-
-    if(targetIndex === 0){
-      invalidNumsAndComp.push(["Discover", numbers]);
-      } else {
-        invalidNumsAndComp[targetIndex].push(numbers);
-      }
-    }
-
-    //Other
-    if(numbers[0] < 3 || numbers[0] > 6){
-      let targetIndex = invalidNumsAndComp.map((item, index) => {
-        return item.indexOf("Company not found") !== -1 ? index : 0;
-    }).reduce((a, b) => a + b, 0);
-
-    if(targetIndex === 0){
-      invalidNumsAndComp.push(["Company not found", numbers]);
-      } else {
-        invalidNumsAndComp[targetIndex].push(numbers);
-      }
-    }
-  })
-
-  return invalidNumsAndComp;
+  //if there is an empty array inside, remove its entire array.
+  let finalArr = companies.filter(company => company[1].length > 0);
+  
+  return finalArr;
 }
 
 // console.log(validateCred(valid1))
-// console.log(idInvalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]))
+//console.log(idInvalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]))
 
-// let invalids = findInvalidCards(batch);
-// console.log(idInvalidCardCompanies(invalids));
+let invalids = findInvalidCards(batch);
+console.log(idInvalidCardCompanies(invalids));
