@@ -102,6 +102,19 @@ class CD extends Media {
   }
 }
 
+class Catalog {
+  constructor() {
+    this._all = [];
+  }
+
+  addItem(instance){
+    this._all.push(instance);
+  }
+
+  get getAll(){
+    return this._all;
+  }
+}
 
 //TEST
 /* BOOK
@@ -136,4 +149,17 @@ console.log(letGo);
 console.log(letGo.shuffle());
 */
 
+/* CATALOG
+const historyOfEverything = new Book('Bill Bryson', 'A Short History of Nearly Everything', 544);
+const speed = new Movie('Jan de Bont', 'Speed', 116);
+const frozen = new Movie('Chris Buck, Jennifer Lee, Stevie Wermers, Kevin Deters', 'Frozen', 109);
+const letGo = new CD('Avril Lavigne', 'Let Go', ['Losing Grip', 'Complicated', 'Sk8er Boi', 'I\'m with You']);
 
+const all = new Catalog();
+all.addItem(historyOfEverything);
+all.addItem(speed);
+all.addItem(frozen);
+all.addItem(letGo);
+
+console.log(all.getAll);
+*/
