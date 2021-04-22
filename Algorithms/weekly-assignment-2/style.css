@@ -1,0 +1,93 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	background-color: antiquewhite;
+	width: 500px;
+}
+
+.select-movie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.select-movie p {
+	margin-right: 1rem;
+}
+
+.select-movie select {
+	height: 1.5rem;
+}
+
+.icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 1.5rem;
+}
+
+.seat-icon {
+	width: 20px;
+	height: 10px;
+	border: none;
+	border-top: 17px solid #666666;
+	border-radius: 100%;
+	position: relative;
+	top: 5px;
+	margin: 0 0.15rem;
+}
+
+.icon span {
+	padding-left: 0.25rem;
+}
+
+.theatre {
+	margin: 3rem auto;
+}
+
+.screen {
+	height: 50px;
+	width: 150px;
+	background-color: #555;
+	margin: 1rem auto;
+}
+
+.seats,
+.row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0.5rem;
+}
+
+.seats .seat-icon:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.theatre + p {
+	text-align: center;
+}
+
+.selected {
+	border-color: #6feaf6;
+}
+
+.occupied {
+	border-color: #fff;
+}
