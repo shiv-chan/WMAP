@@ -27,14 +27,20 @@ function addSeatIcons() {
 	}
 
 	const seatIcons = document.getElementsByClassName('seat-icon');
+
+	//add unique id to all seats
+	for (let i = 0; i < seatIcons.length; i++) {
+		seatIcons[i].setAttribute('id', `${i}`);
+	}
+
 	const selectedNums = document.querySelector('.selected-nums');
 	const sumPrice = document.querySelector('.sum-price');
 	const dropdownList = document.querySelector('#movie');
 	let displaySeatNum = 0;
 	let displayPrice = 0;
+	let occupiedIndex = JSON.parse(localStorage.getItem('selectedSeatsId')) || [];
 
 	//Set occupied seats
-	let occupiedIndex = [8, 10, 11, 12, 24, 25, 38, 39, 51, 52];
 	for (let index of occupiedIndex) {
 		seatIcons[index].classList.add('occupied');
 	}
@@ -42,28 +48,38 @@ function addSeatIcons() {
 	/**
 	 * Change the color when the icon's selected.
 	 * Increase the number of seats and a price.
+	 * Set a selected seats' id to the local storage.
 	 */
 	function selectedIcon() {
 		let price = parseInt(dropdownList.selectedOptions[0].dataset.price);
+		let selectedSeatsId = this.getAttribute('id');
 		this.classList.toggle('selected');
+
 		if (this.classList.contains('selected')) {
 			displaySeatNum++;
 			displayPrice += price;
+			occupiedIndex.push(selectedSeatsId);
 		} else {
 			displaySeatNum--;
 			displayPrice -= price;
 		}
 		selectedNums.textContent = displaySeatNum;
 		sumPrice.textContent = displayPrice;
+
+		//deduplicate the selected seats id
+		let dataStored = occupiedIndex.filter(
+			(value, index, array) => array.indexOf(value) == index
+		);
+		localStorage.setItem('selectedSeatsId', JSON.stringify(dataStored));
 	}
 
 	/**
 	 * Reset all selected seats to n/a and the paragraph
 	 */
 	function reset() {
-		for (let seatIcon of seatIcons) {
-			if (seatIcon.classList.contains('selected')) {
-				seatIcon.classList.remove('selected');
+		for (let i = 3; i < seatIcons.length; i++) {
+			if (seatIcons[i].classList.contains('selected')) {
+				seatIcons[i].classList.remove('selected');
 			}
 			displaySeatNum = 0;
 			displayPrice = 0;
