@@ -28,9 +28,17 @@ function addSeatIcons() {
 }
 
 const seatIcons = document.getElementsByClassName('seat-icon');
+const selectedNums = document.getElementsByClassName('selected-nums');
+const sumPrice = document.getElementsByClassName('sum-price');
+
+/**
+ * Change the color when the icon's selected.
+ * Increase the number of seats and a price.
+ */
+function selectedIcon() {
+	this.classList.toggle('selected');
+}
 
 for (let i = 3; i < seatIcons.length; i++) {
-	seatIcons[i].addEventListener('click', function () {
-		this.classList.toggle('selected');
-	});
+	seatIcons[i].addEventListener('click', selectedIcon);
 }
