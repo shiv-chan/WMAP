@@ -1,8 +1,8 @@
-//create seat icons when the page is loaded.
+//Create seat icons when the page is loaded.
 window.addEventListener('DOMContentLoaded', addSeatIcons);
 
 /**
- * Create seat icons
+ * Create and add seat icons
  */
 function addSeatIcons() {
 	const leftSide = document.querySelector('.left-side');
@@ -25,20 +25,60 @@ function addSeatIcons() {
 			'<div class="row"><div class="seat-icon"></div><div class="seat-icon"></div><div class="seat-icon"></div><div class="seat-icon"></div></div>'
 		);
 	}
-}
 
-const seatIcons = document.getElementsByClassName('seat-icon');
-const selectedNums = document.getElementsByClassName('selected-nums');
-const sumPrice = document.getElementsByClassName('sum-price');
+	const seatIcons = document.getElementsByClassName('seat-icon');
+	const selectedNums = document.querySelector('.selected-nums');
+	const sumPrice = document.querySelector('.sum-price');
+	const dropdownList = document.querySelector('#movie');
+	let displaySeatNum = 0;
+	let displayPrice = 0;
 
-/**
- * Change the color when the icon's selected.
- * Increase the number of seats and a price.
- */
-function selectedIcon() {
-	this.classList.toggle('selected');
-}
+	//Set occupied seats
+	let occupiedIndex = [8, 10, 11, 12, 24, 25, 38, 39, 51, 52];
+	for (let index of occupiedIndex) {
+		seatIcons[index].classList.add('occupied');
+	}
 
-for (let i = 3; i < seatIcons.length; i++) {
-	seatIcons[i].addEventListener('click', selectedIcon);
+	/**
+	 * Change the color when the icon's selected.
+	 * Increase the number of seats and a price.
+	 */
+	function selectedIcon() {
+		let price = parseInt(dropdownList.selectedOptions[0].dataset.price);
+		this.classList.toggle('selected');
+		if (this.classList.contains('selected')) {
+			displaySeatNum++;
+			displayPrice += price;
+		} else {
+			displaySeatNum--;
+			displayPrice -= price;
+		}
+		selectedNums.textContent = displaySeatNum;
+		sumPrice.textContent = displayPrice;
+	}
+
+	/**
+	 * Reset all selected seats to n/a and the paragraph
+	 */
+	function reset() {
+		for (let seatIcon of seatIcons) {
+			if (seatIcon.classList.contains('selected')) {
+				seatIcon.classList.remove('selected');
+			}
+			displaySeatNum = 0;
+			displayPrice = 0;
+			selectedNums.textContent = displaySeatNum;
+			sumPrice.textContent = displayPrice;
+		}
+	}
+
+	//Seat icons clicked
+	for (let i = 3; i < seatIcons.length; i++) {
+		if (!seatIcons[i].classList.contains('occupied')) {
+			seatIcons[i].addEventListener('click', selectedIcon);
+		}
+	}
+
+	//Drop down list changed
+	dropdownList.addEventListener('change', reset);
 }

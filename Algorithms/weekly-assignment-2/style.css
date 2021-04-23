@@ -6,10 +6,11 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-color: #000;
+	color: #fff;
 }
 
 .container {
-	background-color: antiquewhite;
 	width: 500px;
 }
 
@@ -21,10 +22,15 @@ body {
 
 .select-movie p {
 	margin-right: 1rem;
+	font-weight: bold;
 }
 
 .select-movie select {
-	height: 1.5rem;
+	width: 11rem;
+	height: 1.8rem;
+	border-radius: 5px;
+	padding-left: 10px;
+	appearance: none;
 }
 
 .icons {
@@ -39,6 +45,10 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin-right: 1.5rem;
+}
+
+.icon > span {
+	color: #666666;
 }
 
 .seat-icon {
@@ -58,13 +68,17 @@ body {
 
 .theatre {
 	margin: 3rem auto;
+	perspective: 80px;
 }
 
 .screen {
 	height: 50px;
-	width: 150px;
-	background-color: #555;
+	width: 220px;
+	background-color: #fff;
 	margin: 1rem auto;
+	box-shadow: 0px 2px 20px 5px rgba(255, 255, 255, 0.7);
+	transform-style: preserve-3d;
+	transform: rotateX(-5deg);
 }
 
 .seats,
@@ -75,13 +89,18 @@ body {
 	margin: 0 0.5rem;
 }
 
-.seats .seat-icon:hover {
+.seats .seat-icon:not(.occupied):hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
 .theatre + p {
 	text-align: center;
+	font-weight: bold;
+}
+
+.theatre + p span {
+	color: #6feaf6;
 }
 
 .selected {
