@@ -10,3 +10,4 @@ Replication of [this movie seat booking app](https://movie-theater-seat-booking.
   - `perspective`
   - `transform-style: preserve-3d`
   - `transform: rotateX(...deg)`
+- Manipulation of local storage
