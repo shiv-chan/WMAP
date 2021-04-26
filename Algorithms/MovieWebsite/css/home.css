@@ -1,0 +1,77 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+main h1 {
+  font-size: 25px;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  text-transform: uppercase;
+}
+
+.movie-list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.movie-poster {
+	margin: 1rem 0.5rem;
+	position: relative;
+}
+
+.movie-poster-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top: 0;
+	border-radius: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.movie-poster-overlay:hover {
+	opacity: 1;
+}
+
+.movie-poster-overlay a {
+	font-size: 26px;
+	text-decoration: none;
+	color: #fff;
+	position: relative;
+}
+
+.movie-poster-overlay a:hover {
+	color: #fff;
+}
+
+.movie-poster-overlay a::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	transform: scale(0, 1);
+	transform-origin: center;
+	transition: transform 0.3s;
+}
+
+.movie-poster-overlay a:hover::after {
+	transform: scale(1, 1);
+}
+
+.card .card-body .card-text span {
+	margin-right: 0.5rem;
+}
+
+footer {
+  background-color: #F8F9FA;
+}
