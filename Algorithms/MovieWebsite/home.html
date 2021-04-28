@@ -6,20 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Movie Theatre</title>
 		<link rel="stylesheet" href="/css/home.css" />
+		<!-- bootstrap -->
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
 		<script src="/js/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-light bg-light">
+			<nav class="navbar fixed-top">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="/home.html">
 						<img
-							src="movie.svg"
+							src="/assets/movie.svg"
 							alt=""
-							width="30"
-							height="24"
+							width="40"
+							height="40"
 							class="d-inline-block align-text-top"
 						/>
 						Movie Theatre
@@ -27,11 +28,7 @@
 				</div>
 			</nav>
 			<div class="hero">
-				<img
-					src="https://dummyimage.com/800x400/bdbbbd/fff&text=movie"
-					class="card-img-top"
-					alt="movie-top"
-				/>
+				<input type="text" id="search" placeholder="Search Title" />
 			</div>
 		</header>
 		<main>
@@ -116,8 +113,12 @@
 			</div>
 		</main>
 		<footer>
-      footer
-    </footer>
+			<p>Movie Theatre</p>
+			<ul>
+				<li>+1 (555) 555-555</li>
+				<li>Vancouver, BC Canada</li>
+			</ul>
+		</footer>
 		<script src="js/script.js"></script>
 	</body>
 </html>

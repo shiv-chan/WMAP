@@ -1,20 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+:root {
+	--main-color: #28527a;
+	--secondary-color: #8ac4d0;
+	--ternary-color: #f4d160;
+	--highlight: #fbeeac;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Orelega One', cursive;
+}
+
+nav {
+	height: 100px;
+	background-color: var(--main-color);
+}
+
+nav .navbar-brand {
+	font-size: 35px;
+	color: #fff;
+}
+
+nav .navbar-brand:hover {
+	color: #fff;
+}
+
+.hero {
+	width: 100%;
+	height: 0;
+	padding-top: 42.85%;
+	background: center/cover no-repeat
+		url(https://dummyimage.com/800x200/bdbbbd/fff&text=movie);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+#search {
+	width: 30%;
+	min-width: 200px;
+	height: 8%;
+	position: absolute;
+	top: 50%;
+	border: none;
+	border-radius: 15px;
+	outline: none;
+	font-size: 25px;
+	padding: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+main {
+	background-color: var(--secondary-color);
+	top: 100px;
+	padding: 3rem 1rem;
 }
 
 main h1 {
-  font-size: 25px;
-  margin-top: 1rem;
-  margin-left: 2rem;
-  text-transform: uppercase;
+	font-size: 25px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 1rem;
 }
 
 .movie-list {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
+	max-width: 1500px;
+	margin: 0 auto;
 }
 
 .movie-poster {
@@ -22,10 +81,15 @@ main h1 {
 	position: relative;
 }
 
+.card {
+	background-color: var(--main-color) !important;
+	color: #fff;
+}
+
 .movie-poster-overlay {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(244, 209, 96, 0.8);
 	position: absolute;
 	top: 0;
 	border-radius: 3px;
@@ -43,12 +107,12 @@ main h1 {
 .movie-poster-overlay a {
 	font-size: 26px;
 	text-decoration: none;
-	color: #fff;
+	color: var(--main-color);
 	position: relative;
 }
 
 .movie-poster-overlay a:hover {
-	color: #fff;
+	color: var(--main-color);
 }
 
 .movie-poster-overlay a::after {
@@ -58,7 +122,7 @@ main h1 {
 	content: '';
 	width: 100%;
 	height: 2px;
-	background: #fff;
+	background: var(--main-color);
 	transform: scale(0, 1);
 	transform-origin: center;
 	transition: transform 0.3s;
@@ -73,5 +137,22 @@ main h1 {
 }
 
 footer {
-  background-color: #F8F9FA;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	font-size: 20px;
+	padding: 1rem;
+	background-color: var(--main-color);
+	color: #fff;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer ul {
+	list-style-type: none;
+	font-size: 15px;
+	margin: 0;
 }

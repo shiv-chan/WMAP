@@ -5,21 +5,28 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Movie</title>
+		<link rel="stylesheet" href="/css/home.css" />
 		<link rel="stylesheet" href="/css/movie.css" />
+		<!-- bootstrap -->
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
 		<script src="/js/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+		<!-- font-awesome -->
+		<script
+			src="https://kit.fontawesome.com/33e91fc437.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-light bg-light">
+			<nav class="navbar fixed-top">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="/home.html">
 						<img
-							src="movie.svg"
+							src="/assets/movie.svg"
 							alt=""
-							width="30"
-							height="24"
+							width="40"
+							height="40"
 							class="d-inline-block align-text-top"
 						/>
 						Movie Theatre
@@ -29,22 +36,35 @@
 		</header>
 		<main>
 			<div class="hero">
-				<img
-					src="https://dummyimage.com/800x400/bdbbbd/fff&text=movie"
-					class="card-img-top"
-					alt="movie-top"
-				/>
+				<div class="playBtn">
+					<div class="playBtnInner">
+						<i class="fas fa-play"></i>
+					</div>
+				</div>
 			</div>
 			<div class="content">
-        <button type="button" class="btn btn-success">Watch trailer</button>
-        <button type="button" class="btn btn-success">Book ticket</button>
+				<button type="button" class="btn btn-success">Book ticket</button>
 				<h1>Title</h1>
 				<p>
-					<span class="duration">100 min.</span><span class="ratings">G</span><span class="director">John Doe</span>
+					<span class="duration">100 min.</span><span class="ratings">G</span
+					><span class="director">John Doe</span>
 				</p>
 				<h3>Synopsis</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam nobis ipsum dolorem, quo sunt consectetur beatae nihil incidunt asperiores suscipit sint veniam eaque, tempore blanditiis vel dignissimos! Culpa, qui maxime!</p>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam nobis
+					ipsum dolorem, quo sunt consectetur beatae nihil incidunt asperiores
+					suscipit sint veniam eaque, tempore blanditiis vel dignissimos! Culpa,
+					qui maxime!
+				</p>
 			</div>
 		</main>
+		<footer>
+			<p>Movie Theatre</p>
+			<ul>
+				<li>+1 (555) 555-555</li>
+				<li>Vancouver, BC Canada</li>
+			</ul>
+		</footer>
+		<script src="js/script.js"></script>
 	</body>
 </html>

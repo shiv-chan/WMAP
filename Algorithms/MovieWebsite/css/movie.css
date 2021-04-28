@@ -1,0 +1,56 @@
+
+.playBtn {
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+	margin: auto;
+	cursor: pointer;
+}
+
+.playBtn .playBtnInner {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: transparent;
+	border: 0.15rem solid var(--main-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.25s;
+}
+
+.playBtn:hover .playBtnInner {
+	transform: scale(1.1);
+}
+
+.fas.fa-play {
+	color: var(--main-color);
+}
+
+main {
+	padding: 0;
+}
+
+.content {
+	padding: 2rem 3rem;
+}
+
+.content h1 {
+	margin: 0;
+	margin-top: 1rem;
+	text-align: left;
+}
+
+.content h3 {
+	margin: 0.5rem 0;
+	font-size: 20px;
+}
+
+.content p {
+	margin: 0;
+}
+
+.content span {
+	margin-right: 1rem;
+}
