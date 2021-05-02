@@ -30,14 +30,29 @@ nav .navbar-brand:hover {
 
 .hero {
 	width: 100%;
-	height: 0;
-	padding-top: 42.85%;
-	background: center/cover no-repeat
-		url(https://dummyimage.com/800x200/bdbbbd/fff&text=movie);
+	height: 42.85%;
 	position: relative;
-	display: flex;
-	justify-content: center;
-	margin-top: 100px;
+	top: 100px;
+}
+
+.hero > img {
+	width: 100%;
+	position: relative;
+	top: 0;
+	/* filter: blur(2px); */
+}
+
+.hero > :not(img:nth-of-type(1)){
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.hero-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(40, 82, 122, 0.6);
+	z-index: 1;
 }
 
 #search {
@@ -46,18 +61,22 @@ nav .navbar-brand:hover {
 	height: 8%;
 	position: absolute;
 	top: 50%;
+	left: 50%;
+	transform: translate(-50%) translateY(-50%);
 	border: none;
 	border-radius: 15px;
 	outline: none;
 	font-size: 25px;
 	padding: 1rem;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+	z-index: 1;
 }
 
 main {
 	background-color: var(--secondary-color);
 	top: 100px;
 	padding: 3rem 1rem;
+	position: relative;
 }
 
 main h1 {
@@ -81,6 +100,7 @@ main h1 {
 
 .card {
 	width: 100% !important;
+	height: 100%;
 	background-color: var(--main-color) !important;
 	color: #fff;
 }
@@ -144,6 +164,8 @@ footer {
 	padding: 1rem;
 	background-color: var(--main-color);
 	color: #fff;
+	position: relative;
+	top: 100px;
 }
 
 footer p {

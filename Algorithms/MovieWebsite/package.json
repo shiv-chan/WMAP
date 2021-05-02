@@ -1,0 +1,16 @@
+{
+  "name": "MovieWebsite",
+  "version": "1.0.0",
+  "description": "- Create the interface for the home page. - Create the details movie page. - Details movie page need to have the information about the movie, possibility to watch the trailer and the button to buy a ticket.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "createFile": "node ./js/scripts.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
