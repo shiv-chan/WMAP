@@ -39,6 +39,17 @@ function setContent() {
 	hero.insertAdjacentHTML('afterbegin', imageHTML);
 
 	//set a poster image
+	let posterSrc = '';
+	if (detailData.poster_path == null) {
+		posterSrc = `https://dummyimage.com/500x750/8ac4c0/ffffff&text=${detailData.title}`;
+	} else {
+		posterSrc = `${imageEndpoint}${detailData.poster_path}`;
+	}
+	const posterHTML = `
+	<div class="poster" style="width: 30%;">
+  	<img src="${posterSrc}" alt="${detailData.title}">
+	</div>`;
+	hero.insertAdjacentHTML('beforebegin', posterHTML);
 
 	//set a tagline
 
@@ -56,9 +67,13 @@ function setContent() {
 		.join(', ');
 
 	const contentHTML = `
+	<div class="title-book">
   <h1>${detailData.title}</h1>
+	<button type="button" class="btn btn-success">Book ticket</button>
+	</div>
   <ul>
     <li class="genres">${genres}</li>
+		<li class="duration">${detailData.runtime} min.</li>
     <li class="production">${
 			productions ? 'Productions:' : ''
 		} ${productions}</li>
