@@ -69,7 +69,7 @@ function setContent() {
 	const contentHTML = `
 	<div class="title-book">
   <h1>${detailData.title}</h1>
-	<button type="button" class="btn btn-success">Book ticket</button>
+	<a href="/booking.html"><button type="button" class="btn btn-success">Book ticket</button></a>
 	</div>
   <ul>
     <li class="genres">${genres}</li>

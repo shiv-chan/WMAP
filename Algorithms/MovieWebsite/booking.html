@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Movie Seat Booking</title>
+		<link rel="stylesheet" href="./css/booking.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="select-movie">
+				<p>Choose a movie</p>
+				<!-- drop down list -->
+				<select name="movie" id="movie">
+					<option value="avengers" data-price="10">
+						Avengers: Endgame ($<span class="price">10</span>)
+					</option>
+					<option value="joker" data-price="12">
+						Joker ($<span class="price">12</span>)
+					</option>
+					<option value="toystory4" data-price="8">
+						Toy Story 4 ($<span class="price">8</span>)
+					</option>
+					<option value="lion-king" data-price="9">
+						The Lion King ($<span class="price">9</span>)
+					</option>
+				</select>
+				<!-- end of drop down list -->
+			</div>
+			<div class="icons">
+				<div class="icon">
+					<div class="seat-icon na"></div>
+					<span>N/A</span>
+				</div>
+				<div class="icon">
+					<div class="seat-icon selected"></div>
+					<span>Selected</span>
+				</div>
+				<div class="icon">
+					<div class="seat-icon occupied"></div>
+					<span>Occupied</span>
+				</div>
+			</div>
+			<div class="theatre">
+				<div class="screen"></div>
+				<div class="seats">
+					<div class="left-side">
+						<div class="row">
+							<div class="seat-icon"></div>
+							<div class="seat-icon"></div>
+						</div>
+					</div>
+					<div class="middle">
+						<div class="row">
+							<div class="seat-icon"></div>
+							<div class="seat-icon"></div>
+							<div class="seat-icon"></div>
+							<div class="seat-icon"></div>
+						</div>
+					</div>
+					<div class="right-side">
+						<div class="row">
+							<div class="seat-icon"></div>
+							<div class="seat-icon"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>
+				You have selected <span class="selected-nums">0</span> seats for a price
+				of $<span class="sum-price">0</span>
+			</p>
+		</div>
+		<script src="./js/booking.js"></script>
+	</body>
+</html>

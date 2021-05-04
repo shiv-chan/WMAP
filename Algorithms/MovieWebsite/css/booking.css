@@ -1,0 +1,112 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #000;
+	color: #fff;
+}
+
+.container {
+	width: 500px;
+}
+
+.select-movie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.select-movie p {
+	margin-right: 1rem;
+	font-weight: bold;
+}
+
+.select-movie select {
+	width: 11rem;
+	height: 1.8rem;
+	border-radius: 5px;
+	padding-left: 10px;
+	appearance: none;
+}
+
+.icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 1.5rem;
+}
+
+.icon > span {
+	color: #666666;
+}
+
+.seat-icon {
+	width: 20px;
+	height: 10px;
+	border: none;
+	border-top: 17px solid #666666;
+	border-radius: 100%;
+	position: relative;
+	top: 5px;
+	margin: 0 0.15rem;
+}
+
+.icon span {
+	padding-left: 0.25rem;
+}
+
+.theatre {
+	margin: 3rem auto;
+	perspective: 80px;
+}
+
+.screen {
+	height: 50px;
+	width: 220px;
+	background-color: #fff;
+	margin: 1rem auto;
+	box-shadow: 0px 2px 20px 5px rgba(255, 255, 255, 0.7);
+	transform-style: preserve-3d;
+	transform: rotateX(-5deg);
+}
+
+.seats,
+.row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0.5rem;
+}
+
+.seats .seat-icon:not(.occupied):hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.theatre + p {
+	text-align: center;
+	font-weight: bold;
+}
+
+.theatre + p span {
+	color: #6feaf6;
+}
+
+.selected {
+	border-color: #6feaf6;
+}
+
+.occupied {
+	border-color: #fff;
+}
