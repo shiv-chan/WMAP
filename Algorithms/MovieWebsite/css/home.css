@@ -113,18 +113,25 @@ main h1 {
 	color: #fff;
 }
 
-.card-text .genre:nth-of-type(n) {
+.genre:nth-of-type(3n + 1) {
 	padding: 0 0.5rem;
 	color: #000;
 	border-radius: 15px;
+	border: 1px solid var(--main-color);
 	background-color: var(--secondary-color);
 }
 
-.card-text .genre:nth-of-type(2n) {
+.genre:nth-of-type(3n + 2) {
+	padding: 0 0.5rem;
+	border-radius: 15px;
+	border: 1px solid var(--main-color);
 	background-color: var(--ternary-color);
 }
 
-.card-text .genre:nth-of-type(3n) {
+.genre:nth-of-type(3n + 3) {
+	padding: 0 0.5rem;
+	border-radius: 15px;
+	border: 1px solid var(--main-color);
 	background-color: var(--highlight);
 }
 
@@ -199,4 +206,9 @@ footer ul {
 	list-style-type: none;
 	font-size: 15px;
 	margin: 0;
+}
+
+footer p:nth-of-type(2) {
+	margin-left: 2rem;
+	font-size: 12px;
 }

@@ -68,7 +68,7 @@ async function displayMoviePosters() {
 						<p class="card-text">${genresHTMLs.join('')}</p>
 					</div>
 					<div class="movie-poster-overlay">
-						<a href="/movie.html">Book Ticket</a>
+						<a href="/movie.html" data-id="${data.id}">Book Ticket</a>
 					</div>
 				</div>
 			</div>
@@ -103,6 +103,17 @@ async function setHomePage() {
 	await displayMoviePosters();
 	heroImageSwitch();
 	setInterval(heroImageSwitch, 3000);
+	storeMovieId();
+}
+
+//get and store the clicked movie's id
+function storeMovieId() {
+	const movieOverlay = document.getElementsByClassName('movie-poster-overlay');
+	for (let overlay of movieOverlay) {
+		overlay.addEventListener('click', (e) => {
+			localStorage.setItem('movie-id', e.target.dataset.id);
+		});
+	}
 }
 
 setHomePage();
