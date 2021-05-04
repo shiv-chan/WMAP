@@ -17,11 +17,13 @@
 	position: absolute;
 	top: min(10%, 3rem);
 	left: 1.5rem;
+	box-shadow: -15px -15px 0px 0px rgba(244, 209, 96, 1);
 }
 
 .poster > img {
 	object-fit: cover;
 	width: 100%;
+	box-shadow: 15px 15px 0px 0px rgba(40, 82, 122, 1);
 }
 
 .playBtn {
@@ -70,8 +72,7 @@ main {
 }
 
 .content h1 {
-	margin: 0;
-	margin-top: 1rem;
+	margin: 1rem 1rem 0.5rem 0;
 	text-align: left;
 }
 
@@ -95,6 +96,16 @@ main {
 
 .content li {
 	margin-top: 0.5rem;
+}
+
+.genres {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 160px));
+	grid-gap: 0.5rem;
+}
+
+.genre {
+	text-align: center;
 }
 
 .genre:nth-of-type(3n + 1) {
