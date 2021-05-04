@@ -1,4 +1,3 @@
-const apikey = api_keys.API_KEY;
 let allData = [];
 
 //fetch the data of now playing
@@ -19,7 +18,6 @@ async function fetchNowPlaying() {
 		})
 		.then((data) => {
 			allData.push(...data.results);
-			// displayMoviePosters();
 		})
 		.catch((err) => console.error(err));
 }
@@ -31,13 +29,33 @@ const imageEndpoint = `http://image.tmdb.org/t/p/w500/`;
 
 async function displayMoviePosters() {
 	for (let data of allData) {
+		//Add poster images
 		let posterImage;
 		if (data.poster_path == null) {
 			posterImage = `https://dummyimage.com/500x750/8ac4c0/ffffff&text=${data.title}`;
 		} else {
 			posterImage = `${imageEndpoint}${data.poster_path}`;
 		}
-		const moviePoster = `
+
+		//Add genres
+		const genresHTMLs = [];
+		const genreIds = data.genre_ids;
+		if (genreIds.length !== 0) {
+			for (let genreId of genreIds) {
+				const genresDataIndex = genresData.findIndex(
+					(element, index, array) => {
+						return array[index].id == genreId;
+					}
+				);
+				const genresHTML = `
+					<span class="genre">${genresData[genresDataIndex].name}</span>
+					`;
+				genresHTMLs.push(genresHTML);
+			}
+		}
+
+		//set cards' HTML
+		const moviePosterHTML = `
 			<div class="movie-poster">
 				<div class="card" style="width: 18rem">
 					<img
@@ -47,10 +65,7 @@ async function displayMoviePosters() {
 					/>
 					<div class="card-body">
 						<h5 class="card-title">${data.title}</h5>
-						<p class="card-text">
-							<span class="duration">100 min.</span
-							><span class="ratings">G</span>
-						</p>
+						<p class="card-text">${genresHTMLs.join('')}</p>
 					</div>
 					<div class="movie-poster-overlay">
 						<a href="/movie.html">Book Ticket</a>
@@ -58,9 +73,9 @@ async function displayMoviePosters() {
 				</div>
 			</div>
 			`;
+		movieList.insertAdjacentHTML('beforeend', moviePosterHTML);
 
-		movieList.insertAdjacentHTML('beforeend', moviePoster);
-
+		//Add hero images
 		if (data.backdrop_path !== null) {
 			const image = `<img src="${imageEndpoint}${data.backdrop_path}" alt="${data.title}">`;
 			hero.insertAdjacentHTML('beforeend', image);

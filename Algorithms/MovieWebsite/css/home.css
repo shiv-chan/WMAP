@@ -53,7 +53,12 @@ nav .navbar-brand:hover {
 .hero-overlay {
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(180deg, rgba(40,82,122,1) 0%, rgba(0,0,0,0) 85%, rgba(138,196,208,1) 100%);
+	background: linear-gradient(
+		180deg,
+		rgba(40, 82, 122, 1) 0%,
+		rgba(0, 0, 0, 0) 85%,
+		rgba(138, 196, 208, 1) 100%
+	);
 	/* background-color: rgba(40, 82, 122, 0.6); */
 	z-index: 1;
 }
@@ -106,6 +111,21 @@ main h1 {
 	height: 100%;
 	background-color: var(--main-color) !important;
 	color: #fff;
+}
+
+.card-text .genre:nth-of-type(n) {
+	padding: 0 0.5rem;
+	color: #000;
+	border-radius: 15px;
+	background-color: var(--secondary-color);
+}
+
+.card-text .genre:nth-of-type(2n) {
+	background-color: var(--ternary-color);
+}
+
+.card-text .genre:nth-of-type(3n) {
+	background-color: var(--highlight);
 }
 
 .movie-poster-overlay {
