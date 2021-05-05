@@ -30,28 +30,24 @@ function setContent() {
 
 	//set a background image
 	let imageSrc = '';
-	if (detailData.backdrop_path == null) {
-		imageSrc = `./assets/primary-full-logo.svg`;
-	} else {
-		imageSrc = `${imageEndpoint}${detailData.backdrop_path}`;
-	}
+	detailData.backdrop_path == null
+		? (imageSrc = `./assets/primary-full-logo.svg`)
+		: (imageSrc = `${imageEndpoint}${detailData.backdrop_path}`);
+
 	const imageHTML = `<img src="${imageSrc}" alt="${detailData.title}">`;
 	hero.insertAdjacentHTML('afterbegin', imageHTML);
 
 	//set a poster image
 	let posterSrc = '';
-	if (detailData.poster_path == null) {
-		posterSrc = `https://dummyimage.com/500x750/8ac4c0/ffffff&text=${detailData.title}`;
-	} else {
-		posterSrc = `${imageEndpoint}${detailData.poster_path}`;
-	}
+	detailData.poster_path == null
+		? (posterSrc = `https://dummyimage.com/500x750/8ac4c0/ffffff&text=${detailData.title}`)
+		: (posterSrc = `${imageEndpoint}${detailData.poster_path}`);
+
 	const posterHTML = `
 	<div class="poster" style="width: 30%;">
   	<img src="${posterSrc}" alt="${detailData.title}">
 	</div>`;
 	hero.insertAdjacentHTML('beforebegin', posterHTML);
-
-	//set a tagline
 
 	//set a content
 	const genres = detailData.genres
@@ -79,7 +75,7 @@ function setContent() {
 		} ${productions}</li>
     <li class="homepage"><a href="${detailData.homepage}" target="_blanc">${
 		detailData.homepage
-	}</a></li>
+	} <i class="fas fa-external-link-alt"></i></a></li>
   </ul>
   <h3>Synopsis</h3>
   <p>${detailData.overview}</p>
