@@ -1,6 +1,7 @@
 let movieId = parseInt(localStorage.getItem('movie-id'));
 let detailData;
 let videoKey;
+let casts;
 
 //get the movie details
 async function fetchMovieDetails() {
@@ -47,6 +48,30 @@ async function fetchTrailer() {
 		.catch((err) => console.error(err));
 }
 
+//get the casts
+async function fetchCast() {
+	fetch(
+		`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+		{
+			headers: {
+				Authorization: `Bearer ${apikey}`,
+				'Content-Type': 'application/json;charset=utf-8',
+			},
+		}
+	)
+		.then((res) => {
+			if (res.status !== 200) {
+				console.error(res.status);
+			} else {
+				return res.json();
+			}
+		})
+		.then((data) => {
+			casts = data.cast.map((cast) => cast.name);
+		})
+		.catch((err) => console.error(err));
+}
+
 //Set a content
 function setContent() {
 	const hero = document.querySelector('.hero');
@@ -80,7 +105,6 @@ function setContent() {
 	</div>`;
 	hero.insertAdjacentHTML('beforebegin', posterHTML);
 
-	//set a content
 	const genres = detailData.genres
 		.map((genre) => {
 			return `<span class="genre">${genre.name}</span>`;
@@ -93,6 +117,13 @@ function setContent() {
 		})
 		.join(', ');
 
+	const castsHTML = casts
+		.map((cast) => {
+			return `${cast}`;
+		})
+		.join(', ');
+
+	//set a content
 	const contentHTML = `
 	<div class="title-book">
   <h1>${detailData.title}</h1>
@@ -100,15 +131,18 @@ function setContent() {
 	</div>
   <ul>
     <li class="genres">${genres}</li>
-		<li class="duration">${detailData.runtime} min.</li>
+		<li class="duration"><span class="content-header">Runtime: </span><br>${
+			detailData.runtime
+		} min.</li>
     <li class="production">${
-			productions ? 'Productions:' : ''
+			productions ? '<span class="content-header">Productions: </span><br>' : ''
 		} ${productions}</li>
+		<li class="casts"><span class="content-header">Casts: </span><br>${castsHTML}</li>
     <li class="homepage"><a href="${detailData.homepage}" target="_blanc">${
 		detailData.homepage
 	} <i class="fas fa-external-link-alt"></i></a></li>
   </ul>
-  <h3>Synopsis</h3>
+  <h3>Synopsis:</h3>
   <p>${detailData.overview}</p>
   `;
 
@@ -153,8 +187,13 @@ document.addEventListener('click', closeTrailer);
 
 async function showDetails() {
 	await fetchMovieDetails();
+	await fetchCast();
 	await fetchTrailer();
 	await setContent();
 }
 
-showDetails();
+try {
+	showDetails();
+} catch (err) {
+	console.error(`You've got the error: ${err}`);
+}

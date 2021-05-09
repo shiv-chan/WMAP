@@ -10,20 +10,20 @@
 	<body>
 		<div class="container">
 			<div class="select-movie">
-				<p>Choose a movie</p>
+				<p>Choose your seat(s)</p>
 				<!-- drop down list -->
 				<select name="movie" id="movie">
-					<option value="avengers" data-price="10">
-						Avengers: Endgame ($<span class="price">10</span>)
+					<option value="adult" data-price="10">
+						Adult ($<span class="price">10</span>)
 					</option>
-					<option value="joker" data-price="12">
-						Joker ($<span class="price">12</span>)
+					<option value="student" data-price="8">
+						Student ($<span class="price">8</span>)
 					</option>
-					<option value="toystory4" data-price="8">
-						Toy Story 4 ($<span class="price">8</span>)
+					<option value="child" data-price="5">
+						Child ($<span class="price">5</span>)
 					</option>
-					<option value="lion-king" data-price="9">
-						The Lion King ($<span class="price">9</span>)
+					<option value="senior" data-price="8">
+						Senior ($<span class="price">8</span>)
 					</option>
 				</select>
 				<!-- end of drop down list -->
@@ -71,6 +71,10 @@
 				You have selected <span class="selected-nums">0</span> seats for a price
 				of $<span class="sum-price">0</span>
 			</p>
+			<div class="links">
+				<a href="/movie.html">Back to the movie</a>
+				<a href="/home.html">Back to the top</a>
+			</div>
 		</div>
 		<script src="./js/booking.js"></script>
 	</body>

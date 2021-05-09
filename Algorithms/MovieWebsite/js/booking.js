@@ -53,6 +53,7 @@ function addSeatIcons() {
 	function selectedIcon() {
 		let price = parseInt(dropdownList.selectedOptions[0].dataset.price);
 		let selectedSeatsId = this.getAttribute('id');
+		console.log(`🚀 ~ selectedIcon ~ selectedSeatsId`, selectedSeatsId);
 		this.classList.toggle('selected');
 
 		if (this.classList.contains('selected')) {
@@ -62,7 +63,11 @@ function addSeatIcons() {
 		} else {
 			displaySeatNum--;
 			displayPrice -= price;
+			occupiedIndex = occupiedIndex.filter((value) => value != selectedSeatsId);
 		}
+
+		console.log(`🚀 ~ addSeatIcons ~ occupiedIndex`, occupiedIndex);
+
 		selectedNums.textContent = displaySeatNum;
 		sumPrice.textContent = displayPrice;
 
