@@ -1,5 +1,6 @@
 let movieId = parseInt(localStorage.getItem('movie-id'));
-let detailData = '';
+let detailData;
+let videoKey;
 
 //get the movie details
 async function fetchMovieDetails() {
@@ -22,6 +23,30 @@ async function fetchMovieDetails() {
 		.catch((err) => console.error(err));
 }
 
+//get the trailer
+async function fetchTrailer() {
+	await fetch(
+		`https://api.themoviedb.org/3/movie/${movieId}/videos?&type=Trailer&site=YouTube&language=en-US`,
+		{
+			headers: {
+				Authorization: `Bearer ${apikey}`,
+				'Content-Type': 'application/json;charset=utf-8',
+			},
+		}
+	)
+		.then((res) => {
+			if (res.status !== 200) {
+				console.error(res.status);
+			} else {
+				return res.json();
+			}
+		})
+		.then((data) => {
+			videoKey = data.results[0].key;
+		})
+		.catch((err) => console.error(err));
+}
+
 //Set a content
 function setContent() {
 	const hero = document.querySelector('.hero');
@@ -29,7 +54,7 @@ function setContent() {
 	const imageEndpoint = `http://image.tmdb.org/t/p/w500/`;
 
 	//set a background image
-	let imageSrc = '';
+	let imageSrc;
 	detailData.backdrop_path == null
 		? (imageSrc = `./assets/primary-full-logo.svg`)
 		: (imageSrc = `${imageEndpoint}${detailData.backdrop_path}`);
@@ -37,8 +62,14 @@ function setContent() {
 	const imageHTML = `<img src="${imageSrc}" alt="${detailData.title}">`;
 	hero.insertAdjacentHTML('afterbegin', imageHTML);
 
+	//set a trailer video
+	if (videoKey) {
+		const videoHTML = `<iframe style="z-index:1;" class="video" src="https://www.youtube.com/embed/${videoKey}"></iframe>`;
+		hero.insertAdjacentHTML('beforeend', videoHTML);
+	}
+
 	//set a poster image
-	let posterSrc = '';
+	let posterSrc;
 	detailData.poster_path == null
 		? (posterSrc = `https://dummyimage.com/500x750/8ac4c0/ffffff&text=${detailData.title}`)
 		: (posterSrc = `${imageEndpoint}${detailData.poster_path}`);
@@ -84,8 +115,45 @@ function setContent() {
 	content.insertAdjacentHTML('beforeend', contentHTML);
 }
 
+// play the button for a trailer
+const playButton = document.querySelector('.playBtn');
+function playTrailer(e) {
+	e.stopPropagation();
+	const video = document.querySelector('.video');
+	video.style.transform = 'translateX(50%) translateY(50%) scale(1)';
+	video.style.display = 'block';
+	const youtubeURL = video.getAttribute('src');
+	if (youtubeURL.indexOf('?autoplay=1') == -1) {
+		video.setAttribute(
+			'src',
+			`https://www.youtube.com/embed/${videoKey}?autoplay=1`
+		);
+	}
+}
+
+playButton.addEventListener('click', playTrailer);
+
+// close a trailer
+function closeTrailer(e) {
+	const video = document.querySelector('.video');
+	if (video.style.transform == 'translateX(50%) translateY(50%) scale(1)') {
+		video.style.transform = 'translateX(50%) translateY(50%) scale(0)';
+		video.style.display = 'none';
+		const youtubeURL = video.getAttribute('src');
+		if (youtubeURL.indexOf('?autoplay=1') !== -1) {
+			video.setAttribute(
+				'src',
+				`https://www.youtube.com/embed/${videoKey}?autoplay=0`
+			);
+		}
+	}
+}
+
+document.addEventListener('click', closeTrailer);
+
 async function showDetails() {
 	await fetchMovieDetails();
+	await fetchTrailer();
 	await setContent();
 }
 

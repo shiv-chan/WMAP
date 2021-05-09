@@ -44,7 +44,7 @@ nav .navbar-brand:hover {
 	/* filter: blur(2px);*/
 }
 
-.hero > :not(img:nth-of-type(1)) {
+.homepage-hero > :not(img:nth-of-type(1)) {
 	position: absolute;
 	top: 0;
 	left: 0;
