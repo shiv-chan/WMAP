@@ -1,3 +1,4 @@
+const playBtn = document.querySelector('.playBtn');
 let movieId = parseInt(localStorage.getItem('movie-id'));
 let detailData;
 let videoKey;
@@ -89,8 +90,10 @@ function setContent() {
 
 	//set a trailer video
 	if (videoKey) {
-		const videoHTML = `<iframe style="z-index:1;" class="video" src="https://www.youtube.com/embed/${videoKey}"></iframe>`;
+		const videoHTML = `<iframe class="video" src="https://www.youtube.com/embed/${videoKey}"></iframe>`;
 		hero.insertAdjacentHTML('beforeend', videoHTML);
+	} else {
+		playBtn.style.display = 'none';
 	}
 
 	//set a poster image
@@ -152,10 +155,10 @@ function setContent() {
 // play the button for a trailer
 const playButton = document.querySelector('.playBtn');
 function playTrailer(e) {
+	console.log(e.target);
 	e.stopPropagation();
 	const video = document.querySelector('.video');
-	video.style.transform = 'translateX(50%) translateY(50%) scale(1)';
-	video.style.display = 'block';
+	video.classList.add('video-on');
 	const youtubeURL = video.getAttribute('src');
 	if (youtubeURL.indexOf('?autoplay=1') == -1) {
 		video.setAttribute(
@@ -170,16 +173,13 @@ playButton.addEventListener('click', playTrailer);
 // close a trailer
 function closeTrailer(e) {
 	const video = document.querySelector('.video');
-	if (video.style.transform == 'translateX(50%) translateY(50%) scale(1)') {
-		video.style.transform = 'translateX(50%) translateY(50%) scale(0)';
-		video.style.display = 'none';
-		const youtubeURL = video.getAttribute('src');
-		if (youtubeURL.indexOf('?autoplay=1') !== -1) {
-			video.setAttribute(
-				'src',
-				`https://www.youtube.com/embed/${videoKey}?autoplay=0`
-			);
-		}
+	video.classList.remove('video-on');
+	const youtubeURL = video.getAttribute('src');
+	if (youtubeURL.indexOf('?autoplay=1') !== -1) {
+		video.setAttribute(
+			'src',
+			`https://www.youtube.com/embed/${videoKey}?autoplay=0`
+		);
 	}
 }
 
@@ -189,7 +189,7 @@ async function showDetails() {
 	await fetchMovieDetails();
 	await fetchCast();
 	await fetchTrailer();
-	await setContent();
+	setContent();
 }
 
 try {
