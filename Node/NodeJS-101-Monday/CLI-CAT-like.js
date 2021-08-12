@@ -7,6 +7,9 @@ const {
 	readdir,
 	copyFile,
 	constants,
+	stat,
+	open,
+	readFile,
 } = require('fs');
 
 // node yourapp --createFile "somefile.txt"
@@ -200,12 +203,51 @@ if (argv[2] === '--moveFile') {
 
 // node yourapp --size "somefile"
 // get size of the file (in bytes)
+if (argv[2] === '--size') {
+	const path = argv[3];
 
+	stat(path, (err, stats) => {
+		if (err) {
+			Promise.reject(new Error('Fail to get the size of the file.')).catch(
+				(err) => {
+					console.error(err);
+				}
+			);
+		} else {
+			console.log(`The size of the file ${path} is ${stats.size} bytes.`);
+		}
+	});
+}
 // ==================
 
 // node yourapp --view "somefile"
 // view the contents of the file on the screen
+// if (argv[2] === '--view') {
+// 	const path = argv[3];
+// 	open(path, (err, fd) => {
+// 		if (err) {
+// 			Promise.reject(new Error('Fail to open the file.')).catch((err) => {
+// 				console.error(err);
+// 			});
+// 		} else {
+// 			console.log(fd);
+// 		}
+// 	});
+// }
 
+if (argv[2] === '--view') {
+	const path = argv[3];
+	readFile(path, (err, data) => {
+		if (err) {
+			Promise.reject(new Error('Fail to open the file.')).catch((err) => {
+				console.error(err);
+			});
+		} else {
+			console.log(data.toString());
+		}
+	});
+}
 // ==================
 
 // node yourapp --view "somefile" --pause "22"
+// where 22 is a number of lines, pause the viewing after that number of lines so that the user has a chance to see the text, then continue on
