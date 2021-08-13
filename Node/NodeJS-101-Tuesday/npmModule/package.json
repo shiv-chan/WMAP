@@ -1,0 +1,11 @@
+{
+  "name": "os-info",
+  "version": "1.0.0",
+  "description": "shows some os information.",
+  "main": "osInfo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaho Shibuya",
+  "license": "ISC"
+}
